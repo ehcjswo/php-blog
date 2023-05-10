@@ -14,28 +14,19 @@
             margin: 80px auto 0px auto;
             /* background-color: #fff; */
         }
-        .icon {
-            display: flex;
-            justify-content: space-between;
-            padding: 50px 0px 80px 0px;
-            margin: 0 auto;
+        .list__inner > h2 {
+            margin-bottom: 40px;
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            color: #F06171;
         }
-        .icon img {
-            border: 1px solid #F797A2;
-            border-radius: 10px;
-            background-color: #fff;
-            width: 100px;
-            height: 100px;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        .icon img:hover {
-            transform: scale(1.15);
-            border: 2px solid #F06171;
+        .section__img {
+            margin-bottom: 80px;
         }
         .list {
             width: 100%;
-            padding-bottom: 100px;
+            /* padding-bottom: 100px; */
             margin: 0 auto 0 auto;
             /* background-color: #fff; */
             display: flex;
@@ -43,57 +34,20 @@
             box-sizing: border-box;
         }
         .list__img img{
-            border-radius: 15px;
-            padding: 10px 10px 0px 10px;
+            /* border-radius: 15px;
+            padding: 10px */
+            cursor: pointer;
         }
         .list__each {
             display: inline-block;
             width: 250px;
-            height: 400px;
-            margin: 0px 30px 40px 30px;
+            margin: 0px 10px 40px 10px;
             background-color: rgba(247, 151, 162, 0.07);
             border: 1px solid #F797A2;
         }
        
         .list:nth-last-child(1) {
-            margin-bottom: 100px;
-        }
-    
-    
-        
-        .list__text {
-            /* margin-top: 20px; */
-            height: 58%;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            
-        }
-        .list__text h5 {
-            padding-top: 10px;
-            width: 100%;
-            height: 30%; 
-            word-break: keep-all;
-        }
-        .list__text span {
-            width: 100%;
-            height: 30%;
-            font-size: 30px;
-            font-weight: 700;
-            color: #F06171;
-        }
-        .list__text p {
-            width: 100%;
-            font-size: 16px;
-            padding: 5px;
-            background-color: #F797A2;
-            color: #fff;
-        }
-        .list__text p:nth-of-type(1) {
-            padding-right: 60px;
-        }
-        .list__text p:nth-of-type(2) {
-            padding-left: 60px;
+            /* margin-bottom: 100px; */
         }
         
     </style>
@@ -133,161 +87,149 @@
             </div>
         </div>
     </header>
+    
     <!-- //header -->
+    <div id="board__header" class="mt100" >
+        <div class="active"><a href="#">뉴스보기</a></div>        <!-- news-->
+        <div><a href="#">공유게시판</a></div>      <!-- share-->
+        <div><a href="#">공지사항</a></div>        <!-- notice-->
+        <div><a href="#">FAQ</a></div>            <!-- faq-->
+    </div>
+    <!-- board__header -->
 
     <div class="list__inner">
-        <div class="icon filter">
-            <div class="slider__img" data-filter=".all"><img src="assets/img/beauty_icon08.png" data-filter-value=".all" alt="아이콘1"></div>
-            <div class="slider__img" data-filter=".lipstick"><img src="assets/img/beauty_icon01.png" data-filter-value=".lipstick" alt="아이콘1"></div>
-            <div class="slider__img" data-filter=".shampoo"><img src="assets/img/beauty_icon02.png" data-filter-value=".shampoo" alt="아이콘2"></div>
-            <div class="slider__img" data-filter=".sunscreen"><img src="assets/img/beauty_icon03.png" data-filter-value=".sunscreen" alt="아이콘3"></div>
-            <div class="slider__img" data-filter=".cleansing"><img src="assets/img/beauty_icon04.png" data-filter-value=".cleansing" alt="아이콘4"></div>
-            <div class="slider__img" data-filter=".makeup"><img src="assets/img/beauty_icon05.png" data-filter-value=".makeup" alt="아이콘5"></div>
-            <div class="slider__img" data-filter=".mask"><img src="assets/img/beauty_icon06.png" data-filter-value=".mask" alt="아이콘6"></div>
-            <div class="slider__img" data-filter=".cream"><img src="assets/img/beauty_icon07.png" data-filter-value=".cream" alt="아이콘7"></div>
+        <div class="section__img">
+            <img src="assets/img/shareBoard__img01.png" alt="">
         </div>
+        <h2>#뷰티트렌드</h2>
         <div class="list">
             <!-- list__each -->
-            <div class="list__each lipstick all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__lipstick.png" alt="립스틱">
-                </div>
-                <div class="list__text">
-                    <h5>립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/list__lipstick.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
             
             <!-- list__each -->
-            <div class="list__each lipstick all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__lipstick.png" alt="립스틱">
+                    <img src="assets/img/list__shampoo.png" alt="커뮤니티이미지">
                 </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each cleansing">
+                <div class="list__img">
+                    <img src="assets/img/list__cleansing.png" alt="커뮤니티이미지">
+                </div>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each">
+                <div class="list__img">
+                    <img src="assets/img/list__mask.png" alt="커뮤니티이미지">
+                </div>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each">
+                <div class="list__img">
+                    <img src="assets/img/community09.png" alt="커뮤니티이미지">
+                </div>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each">
+                <div class="list__img">
+                    <img src="assets/img/list__sunscreen.png" alt="커뮤니티이미지">
+                </div>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each">
+                <div class="list__img">
+                    <img src="assets/img/list__cream.png" alt="커뮤니티이미지">
+                </div>
+            </div>
+            <!-- //list__each -->
+
+            <!-- list__each -->
+            <div class="list__each">
+                <div class="list__img">
+                    <img src="assets/img/list__lipstick.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
             
             <!-- list__each -->
-            <div class="list__each shampoo all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__shampoo.png" alt="샴푸">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/list__shampoo.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
-            <div class="list__each cleansing all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__cleansing.png" alt="클렌징">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/community10.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
-            <div class="list__each mask all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__mask.png" alt="마스크팩">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/community11.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
-            <div class="list__each makeup all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__makeup.png" alt="메이크업">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/community12.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
-            <div class="list__each sunscreen all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__sunscreen.png" alt="썬크림">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/community13.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
-            <div class="list__each cream all">
+            <div class="list__each">
                 <div class="list__img">
-                    <img src="assets/img/list__cream.png" alt="크림">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
-                </div>
-            </div>
-            <!-- //list__each -->
-
-            <!-- list__each -->
-            <div class="list__each lipstick all">
-                <div class="list__img">
-                    <img src="assets/img/list__lipstick.png" alt="립스틱">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
-                </div>
-            </div>
-            <!-- //list__each -->
-            
-            <!-- list__each -->
-            <div class="list__each shampoo all">
-                <div class="list__img">
-                    <img src="assets/img/list__shampoo.png" alt="샴푸">
-                </div>
-                <div class="list__text">
-                    <h5>샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                    <span>426일</span>
-                    <p>2023/01/05 ~</p>
-                    <p>2024/03/05</p>
+                    <img src="assets/img/community14.png" alt="커뮤니티이미지">
                 </div>
             </div>
             <!-- //list__each -->
         </div>
     </div>
+    <div class="notice__pages mb100">
+        <ul>
+            
+            <li><a href="#"><</a></li>
+            <li class="active"> <a  href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">></a></li>
+        
+        </ul>
+    </div>
+
     <footer id="footer">
         <div class="footer__inner">
             <div class="logo2">
