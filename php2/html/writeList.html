@@ -324,19 +324,22 @@
         $('.list__each' + filterValue).show().css({
             'opacity': 0,
             'width': 0,
-            'margin': 0,
-            'padding': 0
+            // 'margin': 0,
+            // 'padding': 0,
+            'border': 0,
         }).animate({
             'opacity': 1,
-            'width': '250px',
-            'margin': '20px',
-            'padding': '20px'
-        }, 300, function() {
+            'width': '240px',
+            // 'margin': '20px',
+            // 'padding': '0px',
+            
+        }, 800, function() {
             $(this).css({
                 'opacity': '',
                 'width': '',
-                'margin': '',
-                'padding': ''
+                // 'margin': '',
+                // 'padding': '',
+                'border': '',
             });
         });
         // 해당하지 않는 클래스에 대한 list__each 숨기기
@@ -345,7 +348,7 @@
             'width': 0,
             'margin': 0,
             'padding': 0
-        }, 500, function() {
+        }, 200, function() {
             $(this).hide();
             $(this).css({
                 'opacity': '',
