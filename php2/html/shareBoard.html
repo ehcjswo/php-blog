@@ -22,6 +22,7 @@
             color: #F06171;
         }
         .section__img {
+            min-width: 1000px;
             margin-bottom: 80px;
         }
         .list {
@@ -32,19 +33,81 @@
             display: flex;
             flex-wrap: wrap;
             box-sizing: border-box;
+            
         }
-        .list__img img{
+        .list__img .img__box{
             /* border-radius: 15px;
             padding: 10px */
             cursor: pointer;
+            background-size: cover;
+            width: 100;        
+        }
+        .list__text {
+            height: 170px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .list__name {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+        .list__name b {
+            padding-left: 30px;
+            position: relative;
+            
+        }
+        .list__name b::before {
+            position: absolute;
+            content: '';
+            background-image: url(assets/img/herin.png);
+            background-position: 45% 25%;
+            background-size: 150%;
+            width: 25px;
+            height: 25px;
+            background-color: #999;
+            top: -3px;
+            left: 0px;
+            border-radius: 50%;
+        }
+        .list__name small {
+
+        }
+        .list__text .title {
+            width: 100%;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            height: 20px;
+        }
+        .list__text .content {
+            font-weight: 300;
+            font-size: 14px;
+            height: 14px;
         }
         .list__each {
             display: inline-block;
-            width: 250px;
-            margin: 0px 10px 40px 10px;
+            min-width: 300px;
+            width: 300px;
+            height: 400px;
+            margin: 0px 0.5% 250px 0.5%;
             background-color: rgba(247, 151, 162, 0.07);
-            border: 1px solid #F797A2;
+            /* border: 1px solid #F797A2; */
         }
+        .list__img1 {background: url(assets/img/community10.png) 30%; width: 100%; height: 100%;}
+        .list__img2 {background: url(assets/img/community11.png) 50%; width: 100%; height: 100%;}
+        .list__img3 {background: url(assets/img/community12.png) 40%; width: 100%; height: 100%;}
+        .list__img4 {background: url(assets/img/community13.png) 70%; width: 100%; height: 100%;}
+        .list__img5 {background: url(assets/img/community14.png) 30%; width: 100%; height: 100%;}
+        .list__img6 {background: url(assets/img/community15.png) 30%; width: 100%; height: 100%;}
+        .list__img7 {background: url(assets/img/community16.png) 30%; width: 100%; height: 100%;}
+        .list__img8 {background: url(assets/img/community17.png) 60%; width: 100%; height: 100%;}
+        .list__img9 {background: url(assets/img/community18.png) 40%; width: 100%; height: 100%;}
+        .list__img10 {background: url(assets/img/community19.png) 70%; width: 100%; height: 100%;}
+        .list__img11 {background: url(assets/img/community20.png) 80%; width: 100%; height: 100%;}
        
         .list:nth-last-child(1) {
             /* margin-bottom: 100px; */
@@ -101,119 +164,163 @@
         <div class="section__img">
             <img src="assets/img/shareBoard__img01.png" alt="">
         </div>
-        <h2>#뷰티트렌드</h2>
+        <h2>공유 게시판</h2>
         <div class="list">
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__lipstick.png" alt="커뮤니티이미지">
+                <div class="list__img1">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
             
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__shampoo.png" alt="커뮤니티이미지">
+                <div class="list__img2">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each cleansing">
-                <div class="list__img">
-                    <img src="assets/img/list__cleansing.png" alt="커뮤니티이미지">
+                <div class="list__img3">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__mask.png" alt="커뮤니티이미지">
+                <div class="list__img4">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community09.png" alt="커뮤니티이미지">
+                <div class="list__img5">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__sunscreen.png" alt="커뮤니티이미지">
+                <div class="list__img6">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__cream.png" alt="커뮤니티이미지">
+                <div class="list__img7">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__lipstick.png" alt="커뮤니티이미지">
+                <div class="list__img8">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
             
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/list__shampoo.png" alt="커뮤니티이미지">
+                <div class="list__img9">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community10.png" alt="커뮤니티이미지">
+                <div class="list__img10">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
             <!-- list__each -->
             <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community11.png" alt="커뮤니티이미지">
+                <div class="list__img11">
+                </div>
+                <div class="list__text">
+                    <div class="list__name">
+                        <b>해린남편</b><small>5/11</small>
+                    </div>
+                    <h3 class="title">피부를 지키려면 학원 퇴근...</h3>
+                    <p class="content">퇴근 시켜주세요. 집에서 공부 할게요...</p>
                 </div>
             </div>
             <!-- //list__each -->
 
-            <!-- list__each -->
-            <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community12.png" alt="커뮤니티이미지">
-                </div>
-            </div>
-            <!-- //list__each -->
 
-            <!-- list__each -->
-            <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community13.png" alt="커뮤니티이미지">
-                </div>
-            </div>
-            <!-- //list__each -->
-
-            <!-- list__each -->
-            <div class="list__each">
-                <div class="list__img">
-                    <img src="assets/img/community14.png" alt="커뮤니티이미지">
-                </div>
-            </div>
-            <!-- //list__each -->
         </div>
     </div>
     <div class="notice__pages mb100">
