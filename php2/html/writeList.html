@@ -10,7 +10,7 @@
 
     <style>
         .list__inner {
-            width: calc(100% - 650px);
+            width: calc(100% - 35vw);
             margin: 80px auto 0px auto;
             /* background-color: #fff; */
         }
@@ -33,8 +33,13 @@
             transform: scale(1.15);
             border: 2px solid #F06171;
         }
+        .active {
+            border: 3px solid #F06171;
+            border-radius: 15px; 
+        }
         .list {
             width: 100%;
+            height: 45%;
             padding-bottom: 100px;
             margin: 0 auto 0 auto;
             /* background-color: #fff; */
@@ -48,9 +53,10 @@
         }
         .list__each {
             display: inline-block;
-            width: 250px;
-            height: 400px;
-            margin: 0px 0.6em 40px 0.6em;
+            width: 13.6vw;
+            min-width: 251px;
+            height: 380px;
+            margin: 0px 1vw 40px 1vw;
             background-color: rgba(247, 151, 162, 0.07);
             border: 1px solid #F797A2;
         }
@@ -63,7 +69,7 @@
         
         .list__text {
             /* margin-top: 20px; */
-            height: 58%;
+            height: 55%;
             text-align: center;
             display: flex;
             flex-wrap: wrap;
@@ -93,23 +99,24 @@
             background-color: #F797A2;
             width: 100%;
             display: flex;
+            
         }
         .date {
             width: 60%;
 
         }
-        .active {
+        .list__active {
             width: 40%;
             text-align: right;
             margin-top: 40px;
             /* background-color: #fff; */
         }
-        .active a {
+        .list__active a {
             color: #fff;
             padding: 5px;
 
         }
-        .active a:hover {
+        .list__active a:hover {
             background-color: #F06171;
         }
         
@@ -154,7 +161,7 @@
 
     <div class="list__inner">
         <div class="icon filter">
-            <div class="slider__img" data-filter=".all"><img src="assets/img/beauty_icon08.png" data-filter-value=".all" alt="아이콘1"></div>
+            <div class="slider__img active" data-filter=".all"><img src="assets/img/beauty_icon08.png" data-filter-value=".all" alt="아이콘1"></div>
             <div class="slider__img" data-filter=".lipstick"><img src="assets/img/beauty_icon01.png" data-filter-value=".lipstick" alt="아이콘1"></div>
             <div class="slider__img" data-filter=".shampoo"><img src="assets/img/beauty_icon02.png" data-filter-value=".shampoo" alt="아이콘2"></div>
             <div class="slider__img" data-filter=".sunscreen"><img src="assets/img/beauty_icon03.png" data-filter-value=".sunscreen" alt="아이콘3"></div>
@@ -177,7 +184,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -199,7 +206,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -221,7 +228,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -243,7 +250,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -265,7 +272,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -287,7 +294,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -309,7 +316,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -331,7 +338,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -353,7 +360,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
@@ -375,7 +382,7 @@
                             <p>2023/01/05 ~</p>
                             <p>2024/03/05</p>
                         </div>
-                        <div class="active">
+                        <div class="list__active">
                             <a href="#">수정</a>
                             <a href="#">삭제</a>
                         </div>
