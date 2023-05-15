@@ -30,4 +30,13 @@
 @import "notice.css";
 
 /* FAQ */
-@import "faq.css"
+@import "faq.css";
+
+/* 내정보 */
+@import "myInfo.css";
+
+/* category */
+@import "category.css";
+
+/* 공유 게시판 */
+@import "shareboard.css";

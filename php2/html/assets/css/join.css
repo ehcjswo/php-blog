@@ -41,6 +41,17 @@ body {
     margin-bottom: 2px;
     font-size: 1.2em; */
 }
+.joinChkmsg{
+    text-align: left !important;
+    font-size: 0.8rem !important;
+    margin-top: 8px;
+}
+.joinChkmsg.green{
+    color: rgb(0, 185, 124);
+}
+.joinChkmsg.red{
+    color: #F06171;
+}
 
 /* media */
 @media (max-width: 600px){
