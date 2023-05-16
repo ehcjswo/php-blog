@@ -88,6 +88,14 @@
     float: right;
     margin-bottom: 10px;
 }
+.blog__Write select {
+    width: 300px;
+    height: 50px;
+    margin-bottom: 40px;
+    padding: 5px 20px;
+    border: 0;
+    border-radius: 5px;
+}
 .blog__title {
     background: url(../img/blog04.jpg) no-repeat center;
     background-size: cover;

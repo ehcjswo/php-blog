@@ -106,8 +106,9 @@
         }
     } else {
         msg("에러발생2: 관리자에게 문의하세요.");
-        exit;[]
+        exit;
     }
+
 
     //회원가입
     if($isEmailCheck == true && $isPhoneCheck == true){
