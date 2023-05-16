@@ -25,8 +25,19 @@
                 <img src="../html/assets/img/user.png" alt="">
             </a>
             <ul>
+            <?php
+                if (isset($_SESSION['memberID'])) {
+            ?>
                 <li><a href="#">마이페이지</a></li>
-                <li><a href="#">로그아웃</a></li>
+                <li><a href="../login/logout.php">로그아웃</a></li>
+            <?php
+            } else {
+            ?>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="../login/login.php">로그인</a></li>
+            <?php
+            }
+            ?>
             </ul>
         </div>
     </div>

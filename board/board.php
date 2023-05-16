@@ -41,7 +41,7 @@
             </div>
             <!-- intro__inner -->
 
-        <div class="board__inner">
+            <div class="board__inner">
                 <div class="board__search">
                     <div class="left">
                         * 총 <em><?=$boardTotalCount?></em>건의 게시물이 등록되어 있습니다.
