@@ -24,7 +24,7 @@
             <h2>회원가입</h2>
             <p>회원가입을 위해 아이디와 비밀번호를 등록해주세요.</p>
             <div class="join__form">
-                <form action="joinSave.php" name="#" method="post" onsubmit="return joinChecks()">
+                <form action="joinEnd.php" name="#" method="post" onsubmit="return joinChecks()">
                     <fieldset>
                         <legend class="blind">회원가입 영역</legend>
                         <div>
