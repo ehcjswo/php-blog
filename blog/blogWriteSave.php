@@ -42,7 +42,7 @@
             }
 
         } else {
-            echo "<scrtip>alert('이미지 파일이 아닙니다.')</script>";
+            echo "<script>alert('이미지 파일이 아닙니다.')</script>";
         }
     } else {
         echo "이미지 파일을 첨부하지 않았습니다.";
