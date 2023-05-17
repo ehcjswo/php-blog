@@ -9,10 +9,18 @@ $youPass = $_POST['youPass'];
 $youPhone = $_POST['youPhone'];
 $youBirth = $_POST['youBirth'];
 $nickName = $_POST['nickName'];
+$youGender = $_POST['youGender'];
+
 $regTime = time();
 
     // 데이터 입력하기
-    $sql = "INSERT INTO members2 (youEmail, youName, youPass, youPhone, regTime, nickName, youBirth, youImgSrc, youImgSize, youGender) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime', '$nickName', '$youBirth', 'null', 'null', 'null')";
+    if ($youGender == "male"){
+        $sql = "INSERT INTO members2 (youEmail, youName, youPass, youPhone, regTime, nickName, youBirth, youImgSrc, youImgSize, youGender) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime', '$nickName', '$youBirth', 'null', 'null', '$youGender')";
+    } else if ($youGender == "female"){
+        $sql = "INSERT INTO members2 (youEmail, youName, youPass, youPhone, regTime, nickName, youBirth, youImgSrc, youImgSize, youGender) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime', '$nickName', '$youBirth', 'null', 'null', '$youGender')";
+    } else {
+        $sql = "INSERT INTO members2 (youEmail, youName, youPass, youPhone, regTime, nickName, youBirth, youImgSrc, youImgSize, youGender) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime', '$nickName', '$youBirth', 'null', 'null', 'null')";
+    }
     
     $result = $connect -> query($sql);
 ?>

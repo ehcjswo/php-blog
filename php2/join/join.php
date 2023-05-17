@@ -67,9 +67,9 @@
                         <div>
                             <label for="youGender"></label>
                             <select type="text" id="youGender" name="youGender" class="inputStyle" placeholder="성별">
-                                <option value="">성별 선택</option>
-                                <option value="1">남</option>
-                                <option value="2">여</option>
+                                <option value="gender">성별 선택</option>
+                                <option value="male">남</option>
+                                <option value="female">여</option>
                             </select>
                         </div>
                         <button type="submit" class="btnStyle3">회원가입 완료</button>
