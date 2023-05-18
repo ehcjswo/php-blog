@@ -79,7 +79,7 @@
                                     <legend class="blind">닉네임설정</legend>        
                                     <div class="inputNickStyleInfo">
                                         <label for="nickName" class=""></label>
-                                        <input type="text" id="nickName" name="nickName" class="nickInput inputStyle" placeholder="<?=$nickName?>" required>
+                                        <input type="text" id="nickName" name="nickName" class="nickInput inputStyle" placeholder="<?= $resultInfo['nickName']?>" required>
                                         <p class="joinChkmsg" id="nickNameComment"></p>
                                     </div>
                                 </fieldset>
@@ -131,6 +131,7 @@
         let myInfoSaveNum = 0;
         let chkInfo = true;
 
+        // 닉네임 변경 확인
         function myInfoSave(){
             if(myInfoSaveNum === 1){
                 joinChecks();
