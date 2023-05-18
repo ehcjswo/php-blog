@@ -43,7 +43,7 @@
                 <div class="blog__wrap">
                     <h2>All posts</h2>
                     <div class="cards__inner col3 line3">
-                        <div class="card">
+                        <!-- <div class="card">
                             <figure class="card__img">
                                 <source srcset="../html/assets/img/blog01.jpg, ../html/assets/img/blog01@2x.jpg 2x, ../html/assets/img/blog01@3x.jpg 3x">
                                 <img src="../html/assets/img/blog01.jpg" alt="소개이미지">
@@ -55,111 +55,29 @@
                             <div class="card__info">
                                 <a href="#" class="more">더보기</a>
                             </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog02.jpg, ../html/assets/img/blog02@2x.jpg 2x, ../html/assets/img/blog02@3x.jpg 3x">
-                                <img src="../html/assets/img/blog02.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>특정 코딩 언어에 대한 기사</h3>
-                                <p>Java, Python, C++와 같은 특정 코딩 언어에 대한 자세한 기사입니다. 언어의 문법, 기본 구조, 고급 기능에 대해 다룰 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog03.jpg, ../html/assets/img/blog03@2x.jpg 2x, ../html/assets/img/blog03@3x.jpg 3x">
-                                <img src="../html/assets/img/blog03.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>코딩 팁 및 힌트</h3>
-                                <p>코딩할 때 유용한 팁과 힌트 모음입니다. 생산성을 높이고 버그를 피하는 방법에 대한 팁을 제공할 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog04.jpg, ../html/assets/img/blog04@2x.jpg 2x, ../html/assets/img/blog04@3x.jpg 3x">
-                                <img src="../html/assets/img/blog04.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>코딩 프로젝트</h3>
-                                <p>자신의 코딩 프로젝트를 소개하는 글입니다. 프로젝트의 목표, 사용한 기술 및 배운 점에 대해 설명할 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog01.jpg, ../html/assets/img/blog01@2x.jpg 2x, ../html/assets/img/blog01@3x.jpg 3x">
-                                <img src="../html/assets/img/blog01.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>개발을 잘 하는 방법!</h3>
-                                <p>보통 개발을 할 때 가장 필요한 스킬은 검색이다. 검색 키워드에 따라 해결 방안들이 다르고, 결과도 다를 수 있다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog02.jpg, ../html/assets/img/blog02@2x.jpg 2x, ../html/assets/img/blog02@3x.jpg 3x">
-                                <img src="../html/assets/img/blog02.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>특정 코딩 언어에 대한 기사</h3>
-                                <p>Java, Python, C++와 같은 특정 코딩 언어에 대한 자세한 기사입니다. 언어의 문법, 기본 구조, 고급 기능에 대해 다룰 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog03.jpg, ../html/assets/img/blog03@2x.jpg 2x, ../html/assets/img/blog03@3x.jpg 3x">
-                                <img src="../html/assets/img/blog03.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>코딩 팁 및 힌트</h3>
-                                <p>코딩할 때 유용한 팁과 힌트 모음입니다. 생산성을 높이고 버그를 피하는 방법에 대한 팁을 제공할 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog01.jpg, ../html/assets/img/blog01@2x.jpg 2x, ../html/assets/img/blog01@3x.jpg 3x">
-                                <img src="../html/assets/img/blog01.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>개발을 잘 하는 방법!</h3>
-                                <p>보통 개발을 할 때 가장 필요한 스킬은 검색이다. 검색 키워드에 따라 해결 방안들이 다르고, 결과도 다를 수 있다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <figure class="card__img">
-                                <source srcset="../html/assets/img/blog02.jpg, ../html/assets/img/blog02@2x.jpg 2x, ../html/assets/img/blog02@3x.jpg 3x">
-                                <img src="../html/assets/img/blog02.jpg" alt="소개이미지">
-                            </figure>
-                            <div class="card__title">
-                                <h3>특정 코딩 언어에 대한 기사</h3>
-                                <p>Java, Python, C++와 같은 특정 코딩 언어에 대한 자세한 기사입니다. 언어의 문법, 기본 구조, 고급 기능에 대해 다룰 수 있습니다.</p>
-                            </div>
-                            <div class="card__info">
-                                <a href="#" class="more">더보기</a>
-                            </div>
-                        </div>
+                        </div> -->
+<?php
+    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogID DESC";
+    $result = $connect -> query($sql);
+?>
+
+<?php foreach($result as $blog){?>
+        <div class="card">
+            <figure class="card__img">
+                <a href="blogView.php?blogId=<?=$blog['blogID']?>">
+                    <img src="../assets/blog/<?=$blog['blogImgFile'] ?>" alt="<?=['blogTitle']?>">
+                </a>
+            </figure>
+            <div class="card__title">
+                <h3><?=$blog['blogTitle'] ?></h3>
+                <p><?=$blog['blogContents']?></p>
+            </div>
+            <div class="card__info">
+                <a href="#" class="more">더보기</a>
+            </div>
+        </div>
+    <?php } ?>
+
                     </div>
                 </div>
             </div>

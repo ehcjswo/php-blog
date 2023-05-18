@@ -105,7 +105,7 @@
     // 41~60 DESC LIMIT 40,  20 --> page3   (viewNum * 3) - viewNum
     // 61~80 DESC LIMIT 60,  20 --> page4   (viewNum * 4) - viewNum
 
-    $sql = "SELECT b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView FROM board b JOIN members m ON(b.memberID = m.memberID) LIMIT {$viewLimit}, {$viewNum}";
+    $sql = "SELECT b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView FROM board b JOIN members m ON(b.memberID = m.memberID) ORDER BY boardID DESC LIMIT {$viewLimit}, {$viewNum}";
     
     $result = $connect -> query($sql);
 
