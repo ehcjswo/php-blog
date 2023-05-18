@@ -9,7 +9,7 @@
 
 
     // 데이터 조회
-    $sql = "SELECT memberID, youEmail, youName, youPass FROM members2 WHERE youEmail = '$youEmail' AND youPass = '$youPass'";
+    $sql = "SELECT memberID, youEmail, youName, youPass, nickName FROM members2 WHERE youEmail = '$youEmail' AND youPass = '$youPass'";
     $result = $connect -> query($sql);
 
     
@@ -30,6 +30,7 @@
             $_SESSION['memberID'] = $memberInfo['memberID'];
             $_SESSION['youEmail'] = $memberInfo['youEmail'];
             $_SESSION['youName'] = $memberInfo['youName'];
+            $_SESSION['nickName'] = $memberInfo['nickName'];
 
             Header("Location: ../notice/boardNotice.php");
         }

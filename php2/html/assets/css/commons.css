@@ -141,6 +141,7 @@ body.windows {
     border: 1px solid #F06171;
     border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
 }
 /* 카테고리 버튼 */
 .btnStyle6 {

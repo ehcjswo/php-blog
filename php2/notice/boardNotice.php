@@ -7,6 +7,15 @@
 
     $boardTotalCount = $result -> fetch_array(MYSQLI_ASSOC);
     $boardTotalCount = $boardTotalCount['count(boardID)'];
+    echo "<pre>";
+    var_dump ($_SESSION);
+    echo "</pre>";
+    echo "<pre>";
+    var_dump ($_SESSION);
+    echo "</pre>";
+    echo "<pre>";
+    var_dump ($_SESSION);
+    echo "</pre>";
 ?>
 
 <!DOCTYPE html>
