@@ -226,17 +226,17 @@
 
         // 체크박스 요소가 변경될 때 실행되는 함수
         function handleCheckboxChange(event) {
-        if (event.target.checked) {
-            // 모든 체크박스를 반복하면서 현재 체크된 체크박스 이외의 체크박스를 체크해제합니다.
-            checkboxes.forEach((checkbox) => {
-            if (checkbox !== event.target) {
-                checkbox.checked = false;
-            } else {
-                $("#skinType").val(event.target.value);
-                console.log($("#skinType").val());
+            if (event.target.checked) {
+                // 모든 체크박스를 반복하면서 현재 체크된 체크박스 이외의 체크박스를 체크해제합니다.
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false;
+                    } else {
+                        $("#skinType").val(event.target.value);
+                        console.log($("#skinType").val());
+                    }
+                });
             }
-            });
-        }
         }
 
         // 각 체크박스 요소에 이벤트 리스너를 추가합니다.
