@@ -86,35 +86,37 @@
                             <button type="button" class="nickBtn infoBtnStyle1" onclick="joinChecks()">중복확인</button>
                         </div>
                         <div class="skinType__inner">
+                            <input type="hidden" id="skinType" name="skinType" class="nickInput inputStyle" placeholder="<?= $resultInfo['nickName']?>" required>
+
                             <div class="skinType__title"><span>피부타입</span></div>
                             <div class="skinType__cont">
                                 <label class="toggle__type">
-                                    <input type="checkbox">
+                                    <input type="checkbox" value="민감성">
                                     <span class="toggle__info">민감성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox"value="건성">
+                                    <span class="toggle__info">건성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox" value="지성">
+                                    <span class="toggle__info">지성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox" value="중성">
+                                    <span class="toggle__info">중성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox" value="복합성">
+                                    <span class="toggle__info">복합성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox" value="약건성">
+                                    <span class="toggle__info">약건성</span>
                                 </label>
                                 <label class="toggle__type">
-                                    <input type="checkbox">
-                                    <span class="toggle__info">민감성</span>
+                                    <input type="checkbox" value="트러블성">
+                                    <span class="toggle__info">트러블성</span>
                                 </label>
                             </div>
                         </div>
@@ -219,7 +221,50 @@
         }
 
         
+        // 모든 체크박스 요소를 가져옵니다.
+        const checkboxes = document.querySelectorAll('.toggle__type input[type="checkbox"]');
 
+        // 체크박스 요소가 변경될 때 실행되는 함수
+        function handleCheckboxChange(event) {
+        if (event.target.checked) {
+            // 모든 체크박스를 반복하면서 현재 체크된 체크박스 이외의 체크박스를 체크해제합니다.
+            checkboxes.forEach((checkbox) => {
+            if (checkbox !== event.target) {
+                checkbox.checked = false;
+            } else {
+                $("#skinType").val(event.target.value);
+                console.log($("#skinType").val());
+            }
+            });
+        }
+        }
+
+        // 각 체크박스 요소에 이벤트 리스너를 추가합니다.
+        checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', handleCheckboxChange);
+        });
+
+        // function handleCheckboxChange(event) {
+        //     if (event.target.checked) {
+        //         const checkboxValue = event.target.value;
+
+        //         // AJAX 요청 보내기
+        //         fetch('your-php-file.php', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/x-www-form-urlencoded',
+        //             },
+        //             body: 'skinType=' + encodeURIComponent(checkboxValue),
+        //         })
+        //         .then(response => {
+        //             // 응답 처리
+        //             // ...
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //         });
+        //     }
+        // }
         
     </script>
 </body>
