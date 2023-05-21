@@ -12,6 +12,7 @@
     $sql .= "youImgSrc varchar(40) DEFAULT NULL,";
     $sql .= "youImgSize varchar(40) DEFAULT NULL,";
     $sql .= "youGender varchar(10) DEFAULT NULL,";
+    $sql .= "skinType varchar(10) DEFAULT NULL,";
     $sql .= "PRIMARY KEY(memberID)";
     $sql .= ") charset=utf8;";
     $result = $connect -> query($sql);

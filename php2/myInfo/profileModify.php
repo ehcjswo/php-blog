@@ -27,6 +27,6 @@
     $_SESSION['nickName'] = $memberInfo['nickName'];
         
 
-    // Header("Location: myInfoProfile.php");
+    Header("Location: myInfoProfile.php");
 
 ?>

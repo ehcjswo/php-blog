@@ -6,9 +6,10 @@
     $nickName = $_SESSION['nickName'];
 
     $sql = "SELECT * FROM members2 WHERE memberID = '$memberID'";
+    $skinType = "SELECT skinType FROM members2 WHERE memberID = '$memberID'";
+
     $result = $connect -> query($sql);
     $resultInfo = $result -> fetch_array(MYSQLI_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +87,7 @@
                             <button type="button" class="nickBtn infoBtnStyle1" onclick="joinChecks()">중복확인</button>
                         </div>
                         <div class="skinType__inner">
-                            <input type="hidden" id="skinType" name="skinType" class="nickInput inputStyle" placeholder="<?= $resultInfo['nickName']?>" required>
+                            <input type="hidden" id="skinType" name="skinType" class="nickInput inputStyle" placeholder="<?= $resultInfo['nickName']?>" required value="<?=$resultInfo['skinType']?>">
 
                             <div class="skinType__title"><span>피부타입</span></div>
                             <div class="skinType__cont">
@@ -131,12 +132,17 @@
     <script>
         let isNickCheck = false;
         let myInfoSaveNum = 0;
+        let skinTypeSaveNum = 0;
+
         let chkInfo = true;
 
         // 닉네임 변경 확인
         function myInfoSave(){
             if(myInfoSaveNum === 1){
-                joinChecks();
+                // joinChecks();
+                document.myInfoSavephp.submit();
+            } else if(skinTypeSaveNum === 1){
+                $("#nickName").val("<?=$nickName?>");
                 document.myInfoSavephp.submit();
             }
         }
@@ -233,38 +239,33 @@
                         checkbox.checked = false;
                     } else {
                         $("#skinType").val(event.target.value);
+                        skinTypeSaveNum = 1;
                         console.log($("#skinType").val());
                     }
                 });
             }
         }
+        
 
         // 각 체크박스 요소에 이벤트 리스너를 추가합니다.
         checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', handleCheckboxChange);
+            checkbox.addEventListener('change', handleCheckboxChange);
         });
 
-        // function handleCheckboxChange(event) {
-        //     if (event.target.checked) {
-        //         const checkboxValue = event.target.value;
-
-        //         // AJAX 요청 보내기
-        //         fetch('your-php-file.php', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/x-www-form-urlencoded',
-        //             },
-        //             body: 'skinType=' + encodeURIComponent(checkboxValue),
-        //         })
-        //         .then(response => {
-        //             // 응답 처리
-        //             // ...
-        //         })
-        //         .catch(error => {
-        //             console.error('Error:', error);
-        //         });
-        //     }
-        // }
+        // 페이지 로드 시 이전에 선택된 체크박스 값 복원
+        window.addEventListener('load', () => {
+            const selectedSkinType = $("#skinType").val();
+            if (selectedSkinType) {
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.value === selectedSkinType) {
+                        checkbox.checked = true;
+                    } else {
+                        checkbox.checked = false;
+                    }
+                });
+            }
+        });
+       
         
     </script>
 </body>
