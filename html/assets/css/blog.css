@@ -72,7 +72,24 @@
 .blog__aside .cate ul li:hover::before {
     border-radius: 0;
 }
-
+.blog__aside .cate.list2 li {
+    padding: 0;
+    margin-bottom: 10px;
+}
+.blog__aside .cate.list2 li a {
+    display: flex;
+}
+.blog__aside .cate.list2 li a img {
+    width: 100px;
+    border-radius: 5px;
+}
+.blog__aside .cate.list2 li::before {
+    width: 0;
+    height: 0;
+}
+.blog__aside .cate.list2 li a span {
+    margin-left: 10px;
+} 
 .blog__aside .cate h4 {
     display: inline-block;
     background-color: var(--color__black);
@@ -186,6 +203,7 @@
     color: var(--color__white);
     padding: 0 4px 2px 4px;
     margin-bottom: 40px;
+
 }
 
 /* blog__comment */
@@ -193,12 +211,129 @@
     border-top: 1px solid var(--color__black);
     margin-bottom: 100px;
 }
+.blog__comment form {
+    width: 100%;
+}
 .blog__comment > h3 {
     display: inline-block;
     background-color: var(--color__black);
     color: var(--color__white);
     padding: 0 4px 2px 4px;
+    margin-bottom: 40px;
 }
+
+.comment__view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.comment__view .avatar {
+    width: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 2px solid #000;
+    margin-right: 10px;
+}
+.comment__view .info {
+    width: calc(100% - 60px);
+
+}
+.comment__view .info .nickname {
+    font-size: 1.6em;
+    color: #000;
+}
+.comment__view .info .date {
+    color: #aeaeae;
+    font-weight: 100;
+}
+.comment__view .info .msg {
+    color: #666;
+}
+.comment__view .info .del {
+    text-align: right;
+    
+}
+.comment__view .info .del a {
+    color: #8c8c8c;
+    /* font-weight: 100; */
+}
+.comment__view .info .del a:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.comment_delete {
+    margin-top: 10px;
+}
+.comment_delete input {
+    border: 1px solid #a4a4a4;
+    /* background-color: transparent; */
+    padding: 10px;
+}
+.comment_delete button {
+    border: 1px solid #a4a4a4;
+
+}
+.comment_delete button:last-child {
+    background-color: #d6d6d6;
+}
+.comment_delete button:hover:last-child{
+    background-color: #a5a5a5;
+}
+
+.comment_write fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.comment_write label {
+    text-indent: -9999px;
+    display: none;
+}
+.comment_write input {
+    width: 49%;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+}
+.comment_write textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    margin-top: 10px;
+}
+.comment_modify textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+}
+.comment_modify button {
+    border: 1px solid #a4a4a4;
+
+}
+.comment_modify button:last-child {
+    background-color: #d6d6d6;
+}
+.comment_modify button:hover:last-child{
+    background-color: #a5a5a5;
+}
+.comment_modify label {
+    text-indent: -9999px;
+    display: none;
+}
+.comment_modify input {
+    width: 49%;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+}
+.comment_modify button:last-child {
+    background-color: #d6d6d6;
+}
+
 
 /* cards__inner */
 .cards__inner {

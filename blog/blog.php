@@ -83,29 +83,11 @@
             </div>
             <div class="right">
                 <div class="blog__aside">
-                    <div class="intro">
-                        <picture class="img">
-                            <source srcset="../assets/img/intro01.png, ../assets/img/intro01@2x.png 2x, ../assets/img/intro01@3x.png 3x">
-                            <img src="../assets/img/intro01.png" alt="소개이미지">
-                        </picture>
-                        <p class="text">
-                            좋아하는 사람과 좋은 시간을,
-                            소중한 사람과 소중한 시간을, 
-                            변화는 있어도 변함은 없기를
-                        </p>
-                    </div>
-                    <div class="cate">
-                        <h4>카테고리</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>최신 글</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>인기 글</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>최신 댓글</h4>
-                    </div>
+                    <?php include "../include/blogTitle.php" ?>
+                    <?php include "../include/blogCate.php" ?>
+                    <?php include "../include/blogNew.php" ?>
+                    <?php include "../include/blogPopular.php" ?>
+                    <?php include "../include/blogComment.php" ?>
                 </div>
             </div>
             

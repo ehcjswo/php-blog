@@ -1,8 +1,18 @@
 <?php
     include "../connect/connect.php";
     include "../connect/session.php";
+    // include "../connect/joinCheck.php";
+    
+    // if(!isset($_SESSION['memberID'])){
 
+    //     echo "<script>alert('로그인이 필요한 페이지 입니다.')</script>";
+    //     echo "<script>location.href='../login/login.php'</script>";
+
+    //     // Header("Location:../login/login.php");
+    // }
+    
     $memberID = $_SESSION['memberID'];
+
     $nickName = $_SESSION['nickName'];
 
     $sql = "SELECT * FROM members2 WHERE memberID = '$memberID'";
@@ -18,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이디 찾기</title>
+    <title>개인정보- 닉네임변경</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../html/assets/css/style.css">
     <!-- SCRIPT -->
