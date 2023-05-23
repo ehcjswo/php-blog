@@ -155,13 +155,34 @@
             overflow: hidden;
             
         }
-        .list__text div .plusList {
+        .plusList {
             display: inline-block;
-            width: 50px;
+            text-align: center;
+            width: 80px;
             height: 50px;
             line-height: 50px;
-            border-radius: 50%;
+            border-radius: 15px;
             color: #fff;
+            position: relative;
+            font-weight: 700;
+            background-color: #F06171;
+            padding-right: 6px;
+        }
+        .plusList:hover {
+            background-color: #ed475b;
+
+        }
+        .plusList::before {
+            position: absolute;
+            content: '+';
+            top: 0;
+            left: 53px;
+            font-size: 20px;
+            transition: all 0.4s
+        }
+        .plusList:hover::before {
+            transform : rotate(360deg);
+
         }
         .list__text div .plusList:hover {
             
@@ -302,6 +323,10 @@
                         if (element) {
                             element.parentNode.removeChild(element);
                         }
+                        var $grid = $('.grid').isotope({
+                            itemSelector: '.element-item',
+                            layoutMode: 'fitRows'
+                        });
                     },
                     error: function(xhr, status, error) {
                         console.log(error);
@@ -342,13 +367,11 @@
             });
         });
 
-        setInterval(() => {
-            // init Isotope
-            var $grid = $('.grid').isotope({
-                itemSelector: '.element-item',
-                layoutMode: 'fitRows'
-            });
-        }, 0);
+        // init Isotope
+        var $grid = $('.grid').isotope({
+            itemSelector: '.element-item',
+            layoutMode: 'fitRows'
+        });
         // filter functions
         var filterFns = {
         // show if number is greater than 50
