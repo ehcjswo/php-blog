@@ -1,7 +1,7 @@
 <?php
     include "../connect/connect.php";
     include "../connect/session.php";
-    // include "../connect/joinCheck.php";
+    include "../connect/joinCheck.php";
     
     // if(!isset($_SESSION['memberID'])){
 

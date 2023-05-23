@@ -16,9 +16,7 @@
 
     // $nickName = $_SESSION['nickName'];
 
-    $sql = "SELECT * FROM members2 WHERE memberID = '$memberID'";
-    $skinType = "SELECT skinType FROM members2 WHERE memberID = '$memberID'";
-
+    $sql = "SELECT * FROM categorie WHERE memberID = '$memberID'";
     $result = $connect -> query($sql);
     $resultInfo = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
@@ -223,18 +221,19 @@
                 <button class="button" data-sort-by="number">남은시간</button>
                 <button class="button" data-sort-by="date">등록일</button>
             </div>
-        
             <div class="grid">
-                <div class="element-item transition lipstick " data-category="lipstick">
+
+            <?php foreach($result as $categorie){ ?>
+                <div class="element-item transition <?=$categorie['productFilter']?>    " data-category="<?=$categorie['productFilter']?>">
                     <div class="list__img">
-                        <img src="../html/assets/img/list__lipstick.png" alt="립스틱">
+                        <img src="../html/assets/img/list__<?=$categorie['productFilter']?>.png" alt="크림">
                     </div>
                     <div class="list__text">
-                        <h5 class="name">루즈 디올 밤</h5>
-                        <span class="number">323일</span>
+                        <h5 class="name"><?=$categorie['productName']?></h5>
+                        <span class="number"><?=$categorie['productDday']?></span>
                         <div class="list__bottom">
                             <div class="date">
-                                <p>2023/01/05 ~</p>
+                                <p><?=$categorie['productRegist']?> ~</p>
                                 <p>2024/03/05</p>
                             </div>
                             <div class="list__active">
@@ -244,329 +243,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="element-item lipstick " data-category="lipstick">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__lipstick.png" alt="립스틱">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                        <span class="number">424일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/02/05 ~</p>
-                                <p>2024/04/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item shampoo" data-category="shampoo">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__shampoo.png" alt="샴푸">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">메디올</h5>
-                        <span class="number">123일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/03/05 ~</p>
-                                <p>2024/06/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item cleansing" data-category="cleansing">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__cleansing.png" alt="클렌징">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">딥 클렌징 오일</h5>
-                        <span class="number">158일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/04/05 ~</p>
-                                <p>2024/07/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item mask" data-category="mask">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__mask.png" alt="마스크팩">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">매트리콜 캐비어디럭스 마스크팩 스킨존 세트</h5>
-                        <span class="number">36일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/05/05 ~</p>
-                                <p>2024/08/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item makeup" data-category="makeup">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__makeup.png" alt="메이크업">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">요즘울먹 메이크업 set</h5>
-                        <span class="number">255일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/06/05 ~</p>
-                                <p>2024/09/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item sunscreen" data-category="sunscreen">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__sunscreen.png" alt="썬크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">페넬라겐 톤업 선크림</h5>
-                        <span class="number">325일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/07/05 ~</p>
-                                <p>2024/10/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item sunscreen" data-category="sunscreen">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__sunscreen.png" alt="썬크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">디올 프레스티지 라이트-인-화이트</h5>
-                        <span class="number">426일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/08/05 ~</p>
-                                <p>2024/11/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item cream" data-category="cream">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__cream.png" alt="크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">라 콜렉시옹 프리베 크리스챤 디올 그리 디올 바디 크림</h5>
-                        <span class="number">412일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/09/05 ~</p>
-                                <p>2024/12/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item cream" data-category="cream">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__cream.png" alt="크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">셀턴크림</h5>
-                        <span class="number">111일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/10/05 ~</p>
-                                <p>2025/01/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item lipstick" data-category="lipstick">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__lipstick.png" alt="립스틱">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">맥 립스틱 칠리 루비우</h5>
-                        <span class="number">86일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/11/05 ~</p>
-                                <p>2025/02/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item shampoo " data-category="shampoo">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__shampoo.png" alt="샴푸">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">애쉬로렌 530,000ppm 맥주효모 샴푸</h5>
-                        <span class="number">48일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2023/12/05 ~</p>
-                                <p>2025/03/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item mask" data-category="mask">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__mask.png" alt="마스크팩">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">시바산 루틸라 타일링 시트 마스크</h5>
-                        <span class="number">234일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/01/05 ~</p>
-                                <p>2025/03/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item shampoo" data-category="shampoo">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__shampoo.png" alt="샴푸">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">티타드 베르가못 두피 딥클렌징 샴푸</h5>
-                        <span class="number">28일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/02/05 ~</p>
-                                <p>2025/04/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item mask " data-category="mask">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__mask.png" alt="마스크팩">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">엑소덤 마스크팩 셀룰로오스 시트마스크</h5>
-                        <span class="number">363일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/03/05 ~</p>
-                                <p>2025/06/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item diatomic sunscreen " data-category="diatomic">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__sunscreen.png" alt="썬크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                        <span class="number">236일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/04/05 ~</p>
-                                <p>2025/07/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item actinoid cream" data-category="actinoid">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__cream.png" alt="크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">샤넬 138호 푸규스루쥬 알뤼르 립스틱</h5>
-                        <span class="number">734일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/05/05 ~</p>
-                                <p>2025/08/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element-item actinoid sunscreen inner-transition " data-category="actinoid">
-                    <div class="list__img">
-                        <img src="../html/assets/img/list__sunscreen.png" alt="썬크림">
-                    </div>
-                    <div class="list__text">
-                        <h5 class="name">디올스노우 얼티밋 유브이 쉴드 톤업</h5>
-                        <span class="number">223일</span>
-                        <div class="list__bottom">
-                            <div class="date">
-                                <p>2024/06/05 ~</p>
-                                <p>2025/09/05</p>
-                            </div>
-                            <div class="list__active">
-                                <a href="#">수정</a>
-                                <a href="#">삭제</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php } ?>
+
+                
             </div>     
         </div>
     </main>

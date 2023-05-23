@@ -5,6 +5,7 @@
     $sql .= "productID int(5) unsigned auto_increment,";
     $sql .= "memberID int(10) NOT NULL,";
     $sql .= "productName varchar(40) NOT NULL,";
+    $sql .= "productFilter varchar(5) NOT NULL,";
     $sql .= "productType varchar(5) NOT NULL,";
     $sql .= "productDday int(5) NOT NULL,";
     $sql .= "productRegist varchar(10) NOT NULL,";
