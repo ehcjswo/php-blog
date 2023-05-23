@@ -2,12 +2,21 @@
     include "../connect/connect.php";
     include "../connect/session.php";
     
-    $memberID = $_SESSION['memberID'];
+    if(isset($_SESSION['memberID'])){
+        $memberID6 = $_SESSION['memberID'];
+    } else {
+        $memberID = 0;
+    }
+   
     if(isset($_GET['blogId'])){
         $blogID = $_GET['blogId'];
     } else {
         Header("location: blog.php");
     }
+
+    // 블로그 뷰 + 1
+    $sql = "UPDATE blog SET blogView = blogView + 1 WHERE blogID = {$blogID}";
+    $connect -> query($sql);
 
     $blogSql = "SELECT * FROM blog WHERE blogID = '$blogID'";
     $blogResult = $connect -> query($blogSql);
@@ -100,34 +109,33 @@
                             <span class="nickname"><?=$comment['commentName']?></span>
                             <span class="date"><?=date('Y-m-d', $comment['regTime'])?></span>
                             <p class="msg"><?=$comment['commentMsg']?></p>
-                            <!-- 삭제 -->
-                            <div class="comment__delete" style="display: none">
-                                <label for="commentDeletePass" class="blind">비밀번호</label>
-                                <input type="password" id="commentDeletePass" name="commentDeletePass" placeholder="비밀번호">
-                                <button id="commentDeleteCancel">취소</button>
-                                <button id="commentDeleteButton">삭제</button>
-                            </div>
-                            <!-- //삭제 -->
-                            <!-- 수정 -->
-                            <div class="comment__modify" style="display: none">
-                                <label for="msg__modify" class="blind">수정 내용</label>
-                                <textarea name="msg__modify" id="msg__modify" cols rows="4" placeholder="수정할 내용을 적어주세요!"></textarea>
-                                <label for="commentModifyPass" class="blind">비밀번호</label>
-                                <input type="password" id="commentModifyPass" name="commentModifyPass" placeholder="비밀번호">
-                                <button id="commentModifyCancel">취소</button>
-                                <button id="commentModifyButton">수정</button>
-                            </div>
-                            <!-- //수정 -->
                             <div class="del">
                                 <a href="#" class="comment__del__del">삭제</a>
                                 <a href="#" class="comment__del__mod">수정</a>
                             </div>
                         </div>
                     </div>          
-            <?php }
-            ?>
+            <?php } ?>
 
-            
+
+            <!-- 삭제 -->
+            <div class="comment__delete" style="display: none">
+                <label for="commentDeletePass" class="blind">비밀번호</label>
+                <input type="password" id="commentDeletePass" name="commentDeletePass" placeholder="비밀번호">
+                <button id="commentDeleteCancel">취소</button>
+                <button id="commentDeleteButton">삭제</button>
+            </div>
+            <!-- //삭제 -->
+            <!-- 수정 -->
+            <div class="comment__modify" style="display: none">
+                <label for="commentModifyMsg" class="blind">수정 내용</label>
+                <textarea name="commentModifyMsg" id="commentModifyMsg" cols rows="4" placeholder="수정할 내용을 적어주세요!" maxlength="255" required></textarea>
+                <label for="commentModifyPass" class="blind">비밀번호</label>
+                <input type="password" id="commentModifyPass" name="commentModifyPass" placeholder="비밀번호" required>
+                <button id="commentModifyCancel">취소</button>
+                <button id="commentModifyButton">수정</button>
+            </div>
+            <!-- //수정 -->
             
             <div class="comment_write">
                 <form action="#">
@@ -157,25 +165,68 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         let commentID = "";
-
+        // 댓글 수정 버튼
+        $(".comment__del__mod").click(function(e){
+            e.preventDefault();
+            //alert("댓글 수정 버튼 누름");
+            $(this).parent().before($(".comment__modify"));
+            $(".comment__modify").show();
+            $(".comment__delete").hide();
+            commentID = $(this).parent().parent().parent().attr("id");
+        });
+        // 댓글 수정 버튼 --> 취소 버튼
+        $("#commentModifyCancel").click(function(){
+            $(".comment__modify").hide();
+        });
+        // 댓글 수정 버튼 --> 수정 버튼
+        $("#commentModifyButton").click(function(){
+            let number = commentID.replace(/[^0-9]/g, "");
+            if($("#commentModifyPass").val() == ""){
+                alert("댓글 작성시 비밀번호를 작성해주세요!");
+                $("#commentModifyButton").focus();
+            } else {
+                $.ajax({
+                    url: "blogCommentModify.php",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "commentMsg": $("#commentModifyMsg").val(),
+                        "commentPass": $("#commentModifyPass").val(),
+                        "commentID": number,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        if(data.result == "bad"){
+                            alert("비밀번호가 틀렸습니다.!");
+                        } else {
+                            alert("댓글이 수정되었습니다.");
+                        }
+                        location.reload();
+                    },
+                    error: function(request, status, error){
+                        console.log("request" + request);
+                        console.log("status" + status);
+                        console.log("error" + error);
+                    }
+                })
+            }
+        });
         // 댓글 삭제 버튼
         $(".comment__del__del").click(function(e){
             e.preventDefault();
-            $(this).parent().prev().prev().show();
-
+            //alert("댓글 삭제 버튼 누름");
+            $(this).parent().before($(".comment__delete"));
+            $(".comment__delete").show();
+            $(".comment__modify").hide()
             commentID = $(this).parent().parent().parent().attr("id");
         });
-
-        // 댓글 삭제버튼 -> 취소 버튼
+        // 댓글 삭제 버튼 -> 취소 버튼
         $("#commentDeleteCancel").click(function(){
-            alert("fgskdp")
             $(".comment__delete").hide();
         });
-
         // 댓글 삭제 버튼 -> 삭제 버튼
         $("#commentDeleteButton").click(function(){
             let number = commentID.replace(/[^0-9]/g, "");
-            
             if($("#commentDeletePass").val() == ""){
                 alert("댓글 작성시 비밀번호를 작성해주세요!");
                 $("#commentDeletePass").focus();
@@ -189,12 +240,13 @@
                         "commentID": number,
                     },
                     success: function(data){
-                        if(data.result == "good"){
-                            alert("삭제성공")
-                            location.reload();
+                        console.log(data);
+                        if(data.result == "bad"){
+                            alert("비밀번호가 틀렸습니다.!");
                         } else {
-                            alert("비밀번호가 틀렸습니다.");
+                            alert("댓글이 삭제되었습니다.");
                         }
+                        location.reload();
                     },
                     error: function(request, status, error){
                         console.log("request" + request);
@@ -204,10 +256,9 @@
                 })
             }
         });
-
-        
         // 댓글 쓰기 버튼
         $("#commentWriteBtn").click(function(){
+            $("#blogComment").focus();
             if($("#commentWrite").val() == ""){
                 alert("댓글을 작성해주세요!");
                 $("#commentWrite").focus();
@@ -232,7 +283,7 @@
                         console.log("status" + status);
                         console.log("error" + error);
                     }
-                })
+                });
             }
         });
     </script>

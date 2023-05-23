@@ -1,5 +1,6 @@
 <?php
     include "../connect/connect.php";
+    
     $sql = "create table categorie(";
     $sql .= "productID int(5) unsigned auto_increment,";
     $sql .= "memberID int(10) NOT NULL,";
