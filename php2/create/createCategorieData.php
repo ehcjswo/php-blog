@@ -4,6 +4,10 @@ include "../connect/session.php";
 
 $memberID = $_SESSION['memberID'];
 
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
+
 
 // 샴푸
 // for ($i = 1; $i < 10; $i++) {
@@ -24,5 +28,10 @@ for ($i = 1; $i < 10; $i++) {
     $regTime = time();
     $sql = "insert into categorie(memberID, productName, productFilter, productType, productDday, productRegist, regtime) value ($memberID, '구찌 크림' , 'cream', '크림', ${i}*7, '2023-05-25' , ${regTime})";
     $connect -> query($sql);
+}
+if($sql){
+    echo "create tables Complete";
+} else {
+    echo "create tables false";
 }
 ?>

@@ -16,7 +16,7 @@
 
     // $nickName = $_SESSION['nickName'];
 
-    $sql = "SELECT * FROM categorie WHERE memberID = '$memberID'";
+    $sql = "SELECT * FROM categorie WHERE memberID = '$memberID' ORDER BY productDday ASC";
     $result = $connect -> query($sql);
     $resultInfo = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
@@ -145,6 +145,27 @@
             flex-wrap: wrap;
             
         }
+
+        #plus {
+            background-color: #F797A2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100%; */
+            overflow: hidden;
+            
+        }
+        .list__text div .plusList {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            color: #fff;
+        }
+        .list__text div .plusList:hover {
+            
+        }
         .list__text h5 {
             padding-top: 10px;
             width: 100%;
@@ -180,13 +201,17 @@
             text-align: right;
             margin-top: 40px;
             /* background-color: #fff; */
+            position: relative;
         }
+        
         .list__active a {
             color: #fff;
             padding: 5px;
             transition: all 0.2s;
+            
 
         }
+        
         .list__active a:hover {
             background-color: #F06171;
         }
@@ -218,19 +243,19 @@
             </div>
             <div id="sorts" class="button-group">
                 <button class="button" data-sort-by="name">이름순</button>
-                <button class="button" data-sort-by="number">남은시간</button>
+                <button class="button active" data-sort-by="number">남은시간</button>
                 <button class="button" data-sort-by="date">등록일</button>
             </div>
             <div class="grid">
 
             <?php foreach($result as $categorie){ ?>
-                <div class="element-item transition <?=$categorie['productFilter']?>    " data-category="<?=$categorie['productFilter']?>">
+                <div class="element-item transition <?=$categorie['productFilter']?>" id="<?=$categorie['productID']?>" data-category="<?=$categorie['productFilter']?>">
                     <div class="list__img">
                         <img src="../html/assets/img/list__<?=$categorie['productFilter']?>.png" alt="크림">
                     </div>
                     <div class="list__text">
                         <h5 class="name"><?=$categorie['productName']?></h5>
-                        <span class="number"><?=$categorie['productDday']?></span>
+                        <span class="number"><?=$categorie['productDday']?> Day</span>
                         <div class="list__bottom">
                             <div class="date">
                                 <p><?=$categorie['productRegist']?> ~</p>
@@ -238,13 +263,22 @@
                             </div>
                             <div class="list__active">
                                 <a href="#">수정</a>
-                                <a href="#">삭제</a>
+                                <a href="#" onclick="deleteItem(<?=$categorie['productID']?>)">삭제</a>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
 
+            <!-- 추가 박스 -->
+            <div class="element-item lipstick shampoo sunscreen cleansing makeup mask cream" id="plus" data-category="plus">
+                    <div>
+                        <a href="#" class="plusList">add</a>
+                    </div>
+                    <!-- <span class="number"></span> -->
+                </div>
+            </div>
+            <!-- //추가 박스 -->
                 
             </div>     
         </div>
@@ -253,7 +287,31 @@
 
 
     <script>
-        var $grid = $('.grid').isotope({
+        function deleteItem(productID) {
+            event.preventDefault();
+            if (confirm(productID+"정말로 삭제하시겠습니까?")) {
+                $.ajax({
+                    url: "listDelete.php",  // 삭제 요청을 처리하는 PHP 파일의 경로를 수정해야 합니다.
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        "productID": productID
+                    },
+                    success: function(response) {
+                        var element = document.getElementById(productID);
+                        if (element) {
+                            element.parentNode.removeChild(element);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+
+        
+            var $grid = $('.grid').isotope({
             itemSelector: '.element-item',
             layoutMode: 'fitRows',
             getSortData: {
@@ -284,11 +342,13 @@
             });
         });
 
-        // init Isotope
-        var $grid = $('.grid').isotope({
-            itemSelector: '.element-item',
-            layoutMode: 'fitRows'
-        });
+        setInterval(() => {
+            // init Isotope
+            var $grid = $('.grid').isotope({
+                itemSelector: '.element-item',
+                layoutMode: 'fitRows'
+            });
+        }, 0);
         // filter functions
         var filterFns = {
         // show if number is greater than 50
@@ -302,6 +362,7 @@
             return name.match( /ium$/ );
         }
         };
+        
         // bind filter button click
         $('.filters-button-group').on( 'click', 'div', function() {
             var filterValue = $( this ).attr('data-filter');
@@ -309,6 +370,7 @@
             filterValue = filterFns[ filterValue ] || filterValue;
             $grid.isotope({ filter: filterValue });
         });
+        
         // change is-checked class on buttons
         $('.button-group').each( function( i, buttonGroup ) {
             var $buttonGroup = $( buttonGroup );
@@ -317,6 +379,8 @@
                 $( this ).addClass('active');
             });
         });
+        
+        
     </script>
 </body>
 </html>
