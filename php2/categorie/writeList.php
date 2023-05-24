@@ -429,15 +429,30 @@
             <?php foreach($result as $categorie){ ?>
                 <div class="element-item transition <?=$categorie['productFilter']?>" id="<?=$categorie['productID']?>" data-category="<?=$categorie['productFilter']?>">
                     <div class="list__img">
-                        <img src="../html/assets/img/list__<?=$categorie['productFilter']?>.png" alt="크림">
+                        <img src="../html/assets/img/list__<?=$categorie['productFilter']?>.png" alt="<?=$categorie['productType']?>">
                     </div>
                     <div class="list__text">
                         <h5 class="name"><?=$categorie['productName']?></h5>
-                        <span class="number"><?=$categorie['productDday']?> Day</span>
+                        <?php
+                            // 1년 후의 날짜 계산
+                            $oneYearLater = date('Y-m-d', strtotime('+1 year', strtotime($categorie['productRegist'])));
+                            
+                            // 현재 날짜
+                            $currentDate = date('Y-m-d');
+                            
+                            // 남은 일 수 계산
+                            $interval = date_diff(date_create($currentDate), date_create($oneYearLater));
+                            $remainingDays = $interval->format('%r%a');
+                        ?>
+                        <span class="number"><?=$remainingDays-1?> Day</span>
                         <div class="list__bottom">
                             <div class="date">
                                 <p class="regist"><?=$categorie['productRegist']?> ~</p>
-                                <p>2024/03/05</p>
+                                <?php
+                                    // 1년 후의 날짜 계산
+                                    $oneYearLater = date('Y-m-d', strtotime('+1 year', strtotime($categorie['productRegist'])));
+                                ?>
+                                <p class="regist__before"><?=$oneYearLater?></p>
                             </div>
                             <div class="list__active">
                                 <a href="#" onclick="modifyItem(<?=$categorie['productID']?>)">수정</a>
@@ -580,6 +595,18 @@
                     var option = $('.modal__option select').val();
                     var name = $('#modalName').val();
                     var date = $('#modalDate').val();
+
+                    // 1년 후의 날짜 계산
+                    var oneYearLater = new Date(date);
+                    oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+                    var formattedDate = oneYearLater.toISOString().split('T')[0];
+
+                    // 현재 날짜
+                    var currentDate = new Date();
+                    var remainingDays = Math.floor((oneYearLater - currentDate) / (1000 * 60 * 60 * 24));
+
+                    // Dday는 date의 1년 더한 날짜에서 현재 날짜까지 남은 일 수
+                    var Dday = remainingDays;
                     console.log(option)
                     console.log(name)
                     console.log(date)
@@ -594,13 +621,20 @@
                             "name": name,
                             "date": date,
                             "productID": productID,
+                            "Dday": Dday,
                         },
                         success: function(response) {
                             // 데이터 변경된 부분을 페이지에 업데이트
                             var modifiedElement = $("#" + productID); // 수정된 요소의 식별자를 사용하여 해당 요소를 선택
                             modifiedElement.find('.name').text(name); // 제품명 업데이트
                             modifiedElement.find('.element-item').text(option); // 옵션 업데이트
-                            modifiedElement.find('.regist').text(date + " ~"); // 날짜 업데이트
+                            modifiedElement.find('.regist').text(date + " ~"); // 등록날짜 업데이트
+                            modifiedElement.find('.number').text(Dday+" Day"); // 남은 일수
+                            // 1년 후의 날짜 계산
+                            var oneYearLater = new Date(date);
+                            oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+                            var formattedDate = oneYearLater.toISOString().split('T')[0];
+                            modifiedElement.find('.regist__before').text(formattedDate);
                             modifiedElement.find('.list__img img').attr('src', "../html/assets/img/list__" + option + ".png"); // 사진 업데이트
 
                             // 요청이 성공적으로 처리되었을 때의 동작
@@ -666,7 +700,7 @@
                             var newDataHTML = `
                                 <div class="element-item transition ${response.data.productFilter}" id="${response.data.productID}" data-category="${response.data.productFilter}">
                                     <div class="list__img">
-                                        <img src="../html/assets/img/list__${response.data.productFilter}.png" alt="크림">
+                                        <img src="../html/assets/img/list__${response.data.productFilter}.png" alt="${response.data.productType}">
                                     </div>
                                     <div class="list__text">
                                         <h5 class="name">${response.data.productName}</h5>
@@ -699,9 +733,6 @@
                 }
             });
         }
-
-
-
         
         var $grid = $('.grid').isotope({
             itemSelector: '.element-item',
