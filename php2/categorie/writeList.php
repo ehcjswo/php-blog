@@ -229,13 +229,170 @@
             color: #fff;
             padding: 5px;
             transition: all 0.2s;
-            
-
         }
         
         .list__active a:hover {
             background-color: #F06171;
         }
+        .modal__Modify {
+            position: fixed;
+            width: 500px;
+            height: 280px;
+            left: 50%;
+            top: 50%;
+            transform : translate(-50%, -50%);
+            border: 1px solid #eeeeee;
+            background-color: #fff;
+        }
+        .modal__close {
+            width: 100%;
+            height: 50px;
+            background-color: #F797A2;
+            border-bottom: 1px solid #F797A2;
+            display: flex;
+            justify-content: right;
+            color: #fff;
+            align-items: center;
+            font-size: 25px;
+        }
+        .modal__top {
+            /* display: block; */
+            width: 90%;
+            text-align: center;
+            margin-left: 50px;
+        }
+        .modal__btn {
+            width: 10%;
+            height: 100%;
+            background-color: #F797A2;
+            color : #fff;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px solid #fcbfc6;
+        }
+        .modal__btn:hover {
+            background-color: #eb7684;
+        }
+        .modal__main {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 25px 60px 25px;
+        }
+        .modal__option {
+            width: 20%;
+
+        }
+        .modal__option select {
+            height: 30px;
+        }
+        .modal__name {
+            width: 45%;
+            border: 1px solid #666;
+            height: 30px;
+
+        }
+        #modalName {
+            height: 20px;
+            padding-left: 10px;
+            color: #000;
+        }
+        
+        .modal__date {
+            width: 30%;
+            height: 30px;
+            
+        }
+        .modal__footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        #editModal {
+            background-color: #F797A2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal__Plus {
+            position: fixed;
+            width: 500px;
+            height: 280px;
+            left: 50%;
+            top: 50%;
+            transform : translate(-50%, -50%);
+            border: 1px solid #eeeeee;
+            background-color: #fff;
+        }
+        .plus__Modal__close {
+            width: 100%;
+            height: 50px;
+            background-color: #F797A2;
+            border-bottom: 1px solid #F797A2;
+            display: flex;
+            justify-content: right;
+            color: #fff;
+            align-items: center;
+            font-size: 25px;
+        }
+        .plus__Modal__top {
+            /* display: block; */
+            width: 90%;
+            text-align: center;
+            margin-left: 50px;
+        }
+        .plus__Modal__btn {
+            width: 10%;
+            height: 100%;
+            background-color: #F797A2;
+            color : #fff;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px solid #fcbfc6;
+        }
+        .plus__Modal__btn:hover {
+            background-color: #eb7684;
+        }
+        .plus__Modal__main {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 25px 60px 25px;
+        }
+        .plus__Modal__option {
+            width: 20%;
+
+        }
+        .plus__Modal__option select {
+            height: 30px;
+        }
+        .plus__Modal__name {
+            width: 45%;
+            border: 1px solid #666;
+            height: 30px;
+
+        }
+        #plus__ModalName {
+            height: 20px;
+            padding-left: 10px;
+            color: #000;
+        }
+        
+        .plus__Modal__date {
+            width: 30%;
+            height: 30px;
+            
+        }
+        .plus__Modal__footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+
     </style>
     <!-- CSS -->
     <link rel="stylesheet" href="../html/assets/css/style.css">
@@ -279,11 +436,11 @@
                         <span class="number"><?=$categorie['productDday']?> Day</span>
                         <div class="list__bottom">
                             <div class="date">
-                                <p><?=$categorie['productRegist']?> ~</p>
+                                <p class="regist"><?=$categorie['productRegist']?> ~</p>
                                 <p>2024/03/05</p>
                             </div>
                             <div class="list__active">
-                                <a href="#">수정</a>
+                                <a href="#" onclick="modifyItem(<?=$categorie['productID']?>)">수정</a>
                                 <a href="#" onclick="deleteItem(<?=$categorie['productID']?>)">삭제</a>
                             </div>
                         </div>
@@ -292,14 +449,76 @@
             <?php } ?>
 
             <!-- 추가 박스 -->
-            <div class="element-item lipstick shampoo sunscreen cleansing makeup mask cream" id="plus" data-category="plus">
+            <div id="editModal" class="element-item lipstick shampoo sunscreen cleansing makeup mask cream" id="plus" data-category="plus">
                     <div>
-                        <a href="#" class="plusList">add</a>
+                        <a href="#" class="plusList" onclick="plusItem()">add</a>
                     </div>
                     <!-- <span class="number"></span> -->
                 </div>
             </div>
             <!-- //추가 박스 -->
+
+            <!-- 수정 모달 -->
+            <div class="modal__Modify blind">
+                <div class="modal__close">
+                    <p class="modal__top">수정</p>
+                    <a href="#" class="modal__btn">X</a>
+                </div>
+                <div class="modal__main">
+                    <div class="modal__option">
+                        <select>
+                            <option value="lipstick">립스틱</option>
+                            <option value="shampoo">샴푸</option>
+                            <option value="sunscreen">선크림</option>
+                            <option value="cleansing">클렌징</option>
+                            <option value="makeup">메이크업</option>
+                            <option value="mask">마스크</option>
+                            <option value="cream">크림</option>
+                        </select>
+                    </div>
+                    <div class="modal__name">
+                        <input type="text" id="modalName" name="modalName" class="inputStyle" placeholder="제품명" required>
+                    </div>
+                    <div class="modal__date">
+                        <input class="input" type="date" id="modalDate" name="modalDate">
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <a href="#" class="btnStyle4" id="modifyButton">수정완료</a>
+                </div>
+            </div>
+            <!-- //수정 모달 -->
+
+            <!-- 리스트 추가 모달 -->
+            <div class="modal__Plus blind">
+                <div class="plus__Modal__close">
+                    <p class="plus__Modal__top">추가</p>
+                    <a href="#" class="plus__Modal__btn">X</a>
+                </div>
+                <div class="plus__Modal__main">
+                    <div class="plus__Modal__option">
+                        <select>
+                            <option value="lipstick">립스틱</option>
+                            <option value="shampoo">샴푸</option>
+                            <option value="sunscreen">선크림</option>
+                            <option value="cleansing">클렌징</option>
+                            <option value="makeup">메이크업</option>
+                            <option value="mask">마스크</option>
+                            <option value="cream">크림</option>
+                        </select>
+                    </div>
+                    <div class="plus__Modal__name">
+                        <input type="text" id="plus__ModalName" name="plus__ModalName" class="inputStyle" placeholder="제품명" required>
+                    </div>
+                    <div class="plus__Modal__date">
+                        <input class="input" type="date" id="plus__ModalDate" name="plus__ModalDate">
+                    </div>
+                </div>
+                <div class="plus__Modal__footer">
+                    <a href="#" class="btnStyle4" id="plusButton">추가하기</a>
+                </div>
+            </div>
+            <!-- //리스트 추가 모달 -->
                 
             </div>     
         </div>
@@ -308,6 +527,7 @@
 
 
     <script>
+        // 삭제 기능
         function deleteItem(productID) {
             event.preventDefault();
             if (confirm(productID+"정말로 삭제하시겠습니까?")) {
@@ -335,8 +555,142 @@
             }
         }
 
+        function modifyItem(productID) {
+            event.preventDefault();
+            // 수정 클릭시 열기,닫기 토글
+            document.querySelector('.modal__Modify').classList.toggle('blind');
+            $("#modalName").val('');
+            $("#modalDate").val('');
+
+            // 수정모달창 X 누르면 닫기
+            $('.modal__btn').off('click').on('click', function() {
+                event.preventDefault();
+                $("#modalName").val('');
+                $("#modalDate").val('');
+                $('.modal__Modify').addClass('blind');
+            });
+
+            // 수정완료 버튼 클릭 이벤트 처리
+            $('#modifyButton').off('click').on('click', function(event) {
+                event.preventDefault();
+                if ($("#modalName").val() == '' || $("#modalDate").val() == '') {
+                    alert("제품명 혹은 달력을 체크해주세요.")
+                } else {
+                    // 선택한 옵션, 이름, 날짜 값 가져오기
+                    var option = $('.modal__option select').val();
+                    var name = $('#modalName').val();
+                    var date = $('#modalDate').val();
+                    console.log(option)
+                    console.log(name)
+                    console.log(date)
+
+                    // AJAX 요청
+                    $.ajax({
+                        url: "listModify.php", // 수정 요청을 처리하는 PHP 파일의 경로를 수정해야 합니다.
+                        method: "POST",
+                        dataType: "json",
+                        data: {
+                            "option": option,
+                            "name": name,
+                            "date": date,
+                            "productID": productID,
+                        },
+                        success: function(response) {
+                            // 데이터 변경된 부분을 페이지에 업데이트
+                            var modifiedElement = $("#" + productID); // 수정된 요소의 식별자를 사용하여 해당 요소를 선택
+                            modifiedElement.find('.name').text(name); // 제품명 업데이트
+                            modifiedElement.find('.element-item').text(option); // 옵션 업데이트
+                            modifiedElement.find('.regist').text(date + " ~"); // 날짜 업데이트
+                            modifiedElement.find('.list__img img').attr('src', "../html/assets/img/list__" + option + ".png"); // 사진 업데이트
+
+                            // 요청이 성공적으로 처리되었을 때의 동작
+                            var $grid = $('.grid').isotope({
+                                itemSelector: '.element-item',
+                                layoutMode: 'fitRows'
+                            });
+
+                            // 모달 닫기
+                            $('.modal__Modify').addClass('blind');
+                            console.log(response);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        }
+
+        // 리스트 add 기능
+        function plusItem(productID) {
+            event.preventDefault();
+            // add 클릭시 열기,닫기 토글
+            document.querySelector('.modal__Plus').classList.toggle('blind');
+
+            // add모달창 X 누르면 닫기
+            $('.plus__Modal__btn').off('click').on('click',function() {
+                event.preventDefault();
+                $('.modal__Plus').addClass('blind');
+            });
+
+            // 추가완료 버튼 클릭 이벤트 처리
+            $('#plusButton').off('click').on('click', function(event) {
+                event.preventDefault();
+                if ($("#plus__ModalName").val() == '' || $("#plus__ModalDate").val() == '') {
+                    alert("제품명 혹은 달력을 체크해주세요.");
+                } else {
+                    // 선택한 옵션, 이름, 날짜 값 가져오기
+                    var option = $('.plus__Modal__option select').val();
+                    var name = $('#plus__ModalName').val();
+                    var date = $('#plus__ModalDate').val();
+                    console.log(option)
+                    console.log(name)
+                    console.log(date)
+
+                    // AJAX 요청
+                    $.ajax({
+                        url: "listPlus.php",
+                        method: "POST",
+                        dataType: "json",
+                        data: {
+                            "option": option,
+                            "name": name,
+                            "date": date,
+                            "productID": productID,
+                        },
+                        success: function(response) {
+                            alert("성공")
+                            // 데이터 변경된 부분을 페이지에 업데이트
+                            // var modifiedElement = $("#" + productID); // 수정된 요소의 식별자를 사용하여 해당 요소를 선택
+                            // modifiedElement.find('.name').text(name); // 제품명 업데이트
+                            // modifiedElement.find('.element-item').text(option); // 옵션 업데이트
+                            // modifiedElement.find('.regist').text(date + " ~"); // 날짜 업데이트
+                            // modifiedElement.find('.list__img img').attr('src', "../html/assets/img/list__" + option + ".png"); // 사진 업데이트
+
+                            // 요청이 성공적으로 처리되었을 때의 동작
+                            var $grid = $('.grid').isotope({
+                                itemSelector: '.element-item',
+                                layoutMode: 'fitRows'
+                            });
+
+                            // 모달 닫기
+                            $('.modal__Modify').addClass('blind');
+                            console.log(response);
+                        },
+                        error: function(xhr, status, error) {
+                            alert("실패")
+                            console.log(error);
+                            
+                        }
+                    });
+                }
+            });
+        }
+
+
+
         
-            var $grid = $('.grid').isotope({
+        var $grid = $('.grid').isotope({
             itemSelector: '.element-item',
             layoutMode: 'fitRows',
             getSortData: {
