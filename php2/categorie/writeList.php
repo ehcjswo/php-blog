@@ -656,29 +656,42 @@
                             "option": option,
                             "name": name,
                             "date": date,
-                            "productID": productID,
                         },
                         success: function(response) {
-                            alert("성공")
-                            // 데이터 변경된 부분을 페이지에 업데이트
-                            // var modifiedElement = $("#" + productID); // 수정된 요소의 식별자를 사용하여 해당 요소를 선택
-                            // modifiedElement.find('.name').text(name); // 제품명 업데이트
-                            // modifiedElement.find('.element-item').text(option); // 옵션 업데이트
-                            // modifiedElement.find('.regist').text(date + " ~"); // 날짜 업데이트
-                            // modifiedElement.find('.list__img img').attr('src', "../html/assets/img/list__" + option + ".png"); // 사진 업데이트
-
-                            // 요청이 성공적으로 처리되었을 때의 동작
-                            var $grid = $('.grid').isotope({
-                                itemSelector: '.element-item',
-                                layoutMode: 'fitRows'
-                            });
-
                             // 모달 닫기
-                            $('.modal__Modify').addClass('blind');
-                            console.log(response);
+                            $('.modal__Plus').addClass('blind');
+
+                            
+                             // 새로운 데이터의 HTML 요소 생성
+                            var newDataHTML = `
+                                <div class="element-item transition ${response.data.productFilter}" id="${response.data.productID}" data-category="${response.data.productFilter}">
+                                    <div class="list__img">
+                                        <img src="../html/assets/img/list__${response.data.productFilter}.png" alt="크림">
+                                    </div>
+                                    <div class="list__text">
+                                        <h5 class="name">${response.data.productName}</h5>
+                                        <span class="number">${response.data.productDday} Day</span>
+                                        <div class="list__bottom">
+                                            <div class="date">
+                                                <p class="regist">${response.data.productRegist} ~</p>
+                                                <p>2024/03/05</p>
+                                            </div>
+                                            <div class="list__active">
+                                                <a href="#" onclick="modifyItem(${response.data.productID})">수정</a>
+                                                <a href="#" onclick="deleteItem(${response.data.productID})">삭제</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // 새로운 데이터 요소를 페이지에 추가
+                            $('.grid').append(newDataHTML);
+
+                            location.reload()
                         },
-                        error: function(xhr, status, error) {
-                            alert("실패")
+                        error: function(error) {
+                            alert("실패");
                             console.log(error);
                             
                         }
