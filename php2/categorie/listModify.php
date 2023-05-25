@@ -19,7 +19,7 @@
 
     $Dday = $remainingDays;
     
-    $sql = "UPDATE categorie SET productName = '$name', productFilter = '$option', productType = '$option', productDday = '$remainingDays', productRegist = '$date' WHERE productID = $productID";
+    $sql = "UPDATE categorie SET productName = '$name', productFilter = '$option', productType = '$option', productDday = '$oneYearLater', productRegist = '$date' WHERE productID = $productID";
     $result = $connect -> query($sql);
     if ($result) {
         $jsonResult = "success";

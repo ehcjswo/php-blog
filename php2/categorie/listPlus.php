@@ -7,7 +7,6 @@
     $option = $_POST['option'];
     $name = $_POST['name'];
     $date = $_POST['date'];
-    $Dday = $_POST['Dday'];
 
     // 1년 후의 날짜 계산
     $oneYearLater = date('Y-m-d', strtotime('+1 year', strtotime($date)));
@@ -19,11 +18,10 @@
     $interval = date_diff(date_create($currentDate), date_create($oneYearLater));
     $remainingDays = $interval->format('%r%a');
 
-    $Dday = $remainingDays;
     $regTime = time();
 
     
-    $sql = "INSERT INTO categorie (memberID, productName, productFilter, productType, productDday, productRegist, regtime) VALUES ('$memberID', '$name', '$option', '$option', '$Dday', '$date', '$regTime')";
+    $sql = "INSERT INTO categorie (memberID, productName, productFilter, productType, productDday, productRegist, regtime) VALUES ('$memberID', '$name', '$option', '$option', '$oneYearLater', '$date', '$regTime')";
     $result = $connect->query($sql);
 
     $LAST_INSERT_ID = $connect -> insert_id;

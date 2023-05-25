@@ -281,17 +281,17 @@
             padding: 50px 25px 60px 25px;
         }
         .modal__option {
-            width: 20%;
+            width: 30%;
 
         }
         .modal__option select {
             height: 30px;
         }
         .modal__name {
-            width: 45%;
+            width: 35%;
             border: 1px solid #666;
             height: 30px;
-
+            margin-right: 10px;
         }
         #modalName {
             height: 20px;
@@ -359,21 +359,21 @@
         }
         .plus__Modal__main {
             display: flex;
-            justify-content: space-between;
+            /* justify-content: space-between; */
             padding: 50px 25px 60px 25px;
         }
         .plus__Modal__option {
-            width: 20%;
+            width: 30%;
 
         }
         .plus__Modal__option select {
             height: 30px;
         }
         .plus__Modal__name {
-            width: 45%;
+            width: 35%;
             border: 1px solid #666;
             height: 30px;
-
+            margin-right: 10px;
         }
         #plus__ModalName {
             height: 20px;
@@ -411,13 +411,13 @@
         <div id="list__wrap">
             <div class="button-group filters-button-group">
                 <div class="slider__img active" data-filter="*"><img src="../html/assets/img/beauty_icon08.png" data-filter-value=".all" alt="아이콘8"></div>
-                <div class="slider__img" data-filter=".lipstick"><img src="../html/assets/img/beauty_icon01.png" data-filter-value=".lipstick" alt="아이콘1"></div>
-                <div class="slider__img" data-filter=".shampoo"><img src="../html/assets/img/beauty_icon02.png" data-filter-value=".shampoo" alt="아이콘2"></div>
-                <div class="slider__img" data-filter=".sunscreen"><img src="../html/assets/img/beauty_icon03.png" data-filter-value=".sunscreen" alt="아이콘3"></div>
-                <div class="slider__img" data-filter=".cleansing"><img src="../html/assets/img/beauty_icon04.png" data-filter-value=".cleansing" alt="아이콘4"></div>
-                <div class="slider__img" data-filter=".makeup"><img src="../html/assets/img/beauty_icon05.png" data-filter-value=".makeup" alt="아이콘5"></div>
-                <div class="slider__img" data-filter=".mask"><img src="../html/assets/img/beauty_icon06.png" data-filter-value=".mask" alt="아이콘6"></div>
-                <div class="slider__img" data-filter=".cream"><img src="../html/assets/img/beauty_icon07.png" data-filter-value=".cream" alt="아이콘7"></div>
+                <div class="slider__img" data-filter=".Skincare"><img src="../html/assets/img/beauty_icon07.png" data-filter-value=".Skincare" alt="아이콘1"></div>
+                <div class="slider__img" data-filter=".SunCare"><img src="../html/assets/img/beauty_icon03.png" data-filter-value=".SunCare" alt="아이콘2"></div>
+                <div class="slider__img" data-filter=".Makeup"><img src="../html/assets/img/beauty_icon01.png" data-filter-value=".Makeup" alt="아이콘3"></div>
+                <div class="slider__img" data-filter=".Hair"><img src="../html/assets/img/beauty_icon02.png" data-filter-value=".Hair" alt="아이콘4"></div>
+                <div class="slider__img" data-filter=".Cleansing"><img src="../html/assets/img/beauty_icon05.png" data-filter-value=".Cleansing" alt="아이콘5"></div>
+                <div class="slider__img" data-filter=".Body"><img src="../html/assets/img/beauty_icon05.png" data-filter-value=".Body" alt="아이콘6"></div>
+                <div class="slider__img" data-filter=".Mask"><img src="../html/assets/img/beauty_icon06.png" data-filter-value=".Mask" alt="아이콘7"></div>
             </div>
             <div id="sorts" class="button-group">
                 <button class="button" data-sort-by="name">이름순</button>
@@ -464,7 +464,7 @@
             <?php } ?>
 
             <!-- 추가 박스 -->
-            <div id="editModal" class="element-item lipstick shampoo sunscreen cleansing makeup mask cream" id="plus" data-category="plus">
+            <div id="editModal" class="element-item Makeup Makeup SunCare Cleansing makeup Mask Skincare" id="plus" data-category="plus">
                     <div>
                         <a href="#" class="plusList" onclick="plusItem()">add</a>
                     </div>
@@ -482,13 +482,13 @@
                 <div class="modal__main">
                     <div class="modal__option">
                         <select>
-                            <option value="lipstick">립스틱</option>
-                            <option value="shampoo">샴푸</option>
-                            <option value="sunscreen">선크림</option>
-                            <option value="cleansing">클렌징</option>
-                            <option value="makeup">메이크업</option>
-                            <option value="mask">마스크</option>
-                            <option value="cream">크림</option>
+                            <option value="Skincare">로션,스킨</option>
+                            <option value="SunCare">선크림</option>
+                            <option value="Makeup">립제품</option>
+                            <option value="Hair">샴푸,린스</option>
+                            <option value="Cleansing">클렌징폼</option>
+                            <option value="Body">바디워시,로션</option>
+                            <option value="Mask">마스크팩</option>
                         </select>
                     </div>
                     <div class="modal__name">
@@ -513,13 +513,13 @@
                 <div class="plus__Modal__main">
                     <div class="plus__Modal__option">
                         <select>
-                            <option value="lipstick">립스틱</option>
-                            <option value="shampoo">샴푸</option>
-                            <option value="sunscreen">선크림</option>
-                            <option value="cleansing">클렌징</option>
-                            <option value="makeup">메이크업</option>
-                            <option value="mask">마스크</option>
-                            <option value="cream">크림</option>
+                            <option value="Skincare">로션,스킨</option>
+                            <option value="SunCare">선크림</option>
+                            <option value="Makeup">립제품</option>
+                            <option value="Hair">샴푸,린스</option>
+                            <option value="Cleansing">클렌징폼</option>
+                            <option value="Body">바디워시,로션</option>
+                            <option value="Mask">마스크팩</option>
                         </select>
                     </div>
                     <div class="plus__Modal__name">
