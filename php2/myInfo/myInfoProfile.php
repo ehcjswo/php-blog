@@ -84,7 +84,17 @@
                     </div>
                     <form action="profileModify.php" name="myInfoSavephp" method="post">
                         <div class="nick__form">
-                            <img src="../html/assets/img/profile.png" alt="프로필사진등록">
+                        <?php if($resultInfo['youImgSrc'] == 'null'){ ?>
+                            <a href="#" id="profile-link">
+                            <img id="profile-image" src="../html/assets/profile/profile.png" alt="프로필사진등록">
+                        </a>
+                        <?php } else { ?>
+                            <a href="#" id="profile-link">
+                                <img id="profile-image" src="../html/assets/profile/<?= $resultInfo['youImgSrc'] ?>" alt="프로필사진등록">
+                            </a>
+                        <?php } ?>
+                        
+                        <input type="file" id="profile-upload" style="display: none;">
                             <p class="nick__tag">닉네임설정</p>
                                 <fieldset>
                                     <legend class="blind">닉네임설정</legend>        
@@ -275,7 +285,39 @@
                 });
             }
         });
-       
+
+        $(document).ready(function() {
+            $('#profile-upload').change(function() {
+                var file = $(this).prop('files')[0];
+                var formData = new FormData();
+                formData.append('file', file);
+
+                $.ajax({
+                    url: 'uploadProfile.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // 성공적으로 업로드되었을 때 수행할 작업
+                        // response 변수에는 서버에서 받은 응답이 들어있습니다.
+                        console.log(response);
+                        location.reload();
+                    },
+                    error: function() {
+                        // 업로드 중 오류가 발생했을 때 수행할 작업
+                        console.log('오류가 발생했습니다.');
+                    }
+                });
+            });
+
+            $('#profile-link').click(function(e) {
+                e.preventDefault();
+                $('#profile-upload').click();
+            });
+        });
+
+    
         
     </script>
 </body>

@@ -251,6 +251,11 @@
     left: -50px;
     top: -8px;
 }
+
+
+
+
+
 /* 라디오 버튼 */
 .rad-label {
     display: flex;
@@ -426,6 +431,8 @@
     width: 70px;
     height: 70px;
     cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .nick__tag {

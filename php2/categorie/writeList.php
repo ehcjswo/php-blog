@@ -416,7 +416,7 @@
                 <div class="slider__img" data-filter=".Makeup"><img src="../html/assets/img/beauty_icon01.png" data-filter-value=".Makeup" alt="아이콘3"></div>
                 <div class="slider__img" data-filter=".Hair"><img src="../html/assets/img/beauty_icon02.png" data-filter-value=".Hair" alt="아이콘4"></div>
                 <div class="slider__img" data-filter=".Cleansing"><img src="../html/assets/img/beauty_icon05.png" data-filter-value=".Cleansing" alt="아이콘5"></div>
-                <div class="slider__img" data-filter=".Body"><img src="../html/assets/img/beauty_icon05.png" data-filter-value=".Body" alt="아이콘6"></div>
+                <div class="slider__img" data-filter=".Body"><img src="../html/assets/img/beauty_icon04.png" data-filter-value=".Body" alt="아이콘6"></div>
                 <div class="slider__img" data-filter=".Mask"><img src="../html/assets/img/beauty_icon06.png" data-filter-value=".Mask" alt="아이콘7"></div>
             </div>
             <div id="sorts" class="button-group">
@@ -464,7 +464,7 @@
             <?php } ?>
 
             <!-- 추가 박스 -->
-            <div id="editModal" class="element-item Makeup Makeup SunCare Cleansing makeup Mask Skincare" id="plus" data-category="plus">
+            <div id="editModal" class="element-item Makeup SunCare Cleansing Mask Skincare Hair Body" id="plus" data-category="plus">
                     <div>
                         <a href="#" class="plusList" onclick="plusItem()">add</a>
                     </div>
