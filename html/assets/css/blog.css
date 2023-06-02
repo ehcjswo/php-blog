@@ -378,10 +378,17 @@
 .cards__inner.row > .card .card__title {
     width: 67%;
 }
-
+.card__img {
+    height: 297px;
+    max-height: 300px;
+    overflow: hidden;
+    
+}
 .card__img img {
     filter: saturate(0%);
     transition: all 0.3s;
+    object-fit: cover;
+    /* max-height: 300px; */
 }
 .card__img img:hover {
     filter: saturate(100%);

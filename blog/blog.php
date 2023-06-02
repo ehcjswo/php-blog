@@ -76,7 +76,7 @@
                 <a href="#" class="more">더보기</a>
             </div>
         </div>
-    <?php } ?>
+<?php } ?>
 
                     </div>
                 </div>

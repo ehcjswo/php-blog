@@ -2,9 +2,9 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    echo "<pre>";
-    var_dump($_SESSION);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_SESSION);
+    // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +28,7 @@
     <main id="main" class="container">
         <div class="intro__inner bmStyle">
             <picture class="intro__images">
-                <source srcset="../assets/img/intro01.png, ../assets/img/intro01@2x.png 2x, ../assets/img/intro01@3x.png 3x">
-                <img src="../assets/img/intro01.png" alt="소개이미지">
+                <img src="../assets/img/spcat.png" alt="소개이미지">
             </picture>
             <p class="intro__text">
                 좋아하는 사람과 좋은 시간을,
@@ -38,6 +37,47 @@
             </p>
             
         </div>
+        
+        <div class="blog__inner">
+            <div class="blog__wrap">
+                <h2>NEW posts</h2>
+                <div class="cards__inner col4 line3">
+                    <!-- <div class="card">
+                        <figure class="card__img">
+                            <source srcset="../html/assets/img/blog01.jpg, ../html/assets/img/blog01@2x.jpg 2x, ../html/assets/img/blog01@3x.jpg 3x">
+                            <img src="../html/assets/img/blog01.jpg" alt="소개이미지">
+                        </figure>
+                        <div class="card__title">
+                            <h3>개발을 잘 하는 방법!</h3>
+                            <p>보통 개발을 할 때 가장 필요한 스킬은 검색이다. 검색 키워드에 따라 해결 방안들이 다르고, 결과도 다를 수 있다.</p>
+                        </div>
+                        <div class="card__info">
+                            <a href="#" class="more">더보기</a>
+                        </div>
+                    </div> -->
+<?php
+    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogID DESC LIMIT 8";
+    $result = $connect -> query($sql);
+?>
+
+<?php foreach($result as $blog){?>
+        <div class="card">
+            <figure class="card__img">
+                <a href="blogView.php?blogId=<?=$blog['blogID']?>">
+                    <img src="../assets/blog/<?=$blog['blogImgFile'] ?>" alt="<?=['blogTitle']?>">
+                </a>
+            </figure>
+            <div class="card__title">
+                <h3><?=$blog['blogTitle'] ?></h3>
+                <p><?=$blog['blogContents']?></p>
+            </div>
+        </div>
+<?php } ?>
+
+                    </div>
+                </div>
+            </div>
+
         <!-- 
             <div class="intro__inner"></div>  각페이지 소개 배너
             <div class="join__inner"></div>  회원가입 페이지

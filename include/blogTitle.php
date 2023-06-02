@@ -1,7 +1,6 @@
 <div class="intro">
     <picture class="img">
-        <source srcset="../assets/img/intro01.png, ../assets/img/intro01@2x.png 2x, ../assets/img/intro01@3x.png 3x">
-        <img src="../assets/img/intro01.png" alt="소개이미지">
+        <img src="../assets/img/spcat.png" alt="소개이미지">
     </picture>
     <p class="text">
         좋아하는 사람과 좋은 시간을,

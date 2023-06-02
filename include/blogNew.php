@@ -11,7 +11,7 @@
 
             foreach($blogNewResult as $blog){ ?>
                 <li>
-                    <a href="blogView.php?blogID=<?=$blog['blogID']?>">
+                    <a href="blogView.php?blogId=<?=$blog['blogID']?>">
                         <img src="../assets/blog/<?=$blog['blogImgFile']?>" alt="<?=$blog['blogTitle']?>">
                         <span><?=$blog['blogTitle']?></span>
                     </a>
