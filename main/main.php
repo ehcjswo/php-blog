@@ -63,7 +63,7 @@
 <?php foreach($result as $blog){?>
         <div class="card">
             <figure class="card__img">
-                <a href="blogView.php?blogId=<?=$blog['blogID']?>">
+                <a href="../blog/blogView.php?blogId=<?=$blog['blogID']?>">
                     <img src="../assets/blog/<?=$blog['blogImgFile'] ?>" alt="<?=['blogTitle']?>">
                 </a>
             </figure>

@@ -22,12 +22,12 @@
     $blogResult = $connect -> query($blogSql);
     $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
 
-    $commentSql = "SELECT * FROM blogComment WHERE blogID = '$blogID' AND commentDelete = '0' ORDER BY commentID ASC";
+    $commentSql = "SELECT * FROM blogcomment WHERE blogID = '$blogID' AND commentDelete = '0' ORDER BY commentID ASC";
     $commentResult = $connect -> query($commentSql);
     // $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);
 
     // echo "<pre>";
-    // var_dump ($commentResult);
+    // var_dump ($_SESSION);
     // echo "</pre>";
 ?>
 
