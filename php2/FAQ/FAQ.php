@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 페이지</title>
+    <title>FAQ</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../html/assets/css/style.css">
@@ -34,10 +34,10 @@
 
         <!-- //header -->
         <div id="board__header" class="mt100">
-            <div><a href="trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
-            <div><a href="shareBoard.php">공유게시판</a></div> <!-- share-->
-            <div class="active"><a href="boardNotice.php">공지사항</a></div> <!-- notice-->
-            <div><a href="FAQ.php">FAQ</a></div> <!-- faq-->
+            <div><a href="../shareBoard/trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
+            <div><a href="../shareBoard/shareBoard.php">공유게시판</a></div> <!-- share-->
+            <div><a href="../notice/boardNotice.php">공지사항</a></div> <!-- notice-->
+            <div class="active"><a href="../FAQ/FAQ.php">FAQ</a></div> <!-- faq-->
         </div>
         <!-- board__header -->
       

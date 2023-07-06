@@ -1,27 +1,22 @@
 <?php
     include "../connect/connect.php";
     include "../connect/session.php";
-    include "../connect/joinCheck.php";
+    include "../connect/sessionChk.php";
+    
     
     // if(!isset($_SESSION['memberID'])){
-
     //     echo "<script>alert('로그인이 필요한 페이지 입니다.')</script>";
     //     echo "<script>location.href='../login/login.php'</script>";
-
     //     // Header("Location:../login/login.php");
     // }
     
     $memberID = $_SESSION['memberID'];
-
     $nickName = $_SESSION['nickName'];
-
     $sql = "SELECT * FROM members2 WHERE memberID = '$memberID'";
     $skinType = "SELECT skinType FROM members2 WHERE memberID = '$memberID'";
-
     $result = $connect -> query($sql);
     $resultInfo = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -58,22 +53,22 @@
                     <div class="aside1 aside__bmStyle">
                         <span>나의정보</span>
                         <ul>
-                            <li><a href="#" class="active">프로필 설정</a></li>
-                            <li><a href="#">회원정보 수정</a></li>
+                            <li><a href="myInfoProfile.php" class="active">프로필 설정</a></li>
+                            <li><a href="myInfoModifyPass.php" >회원정보 수정</a></li>
                         </ul>
                     </div>
-                    <div class="aside2 aside__bmStyle"> 
+                    <div class="aside2 aside__bmStyle">
                         <span>나의정보</span>
                         <ul>
-                            <li><a href="#" >내가 쓴 게시물</a></li>
-                            <li><a href="#" >내가 쓴 댓글</a></li>
-                            <li><a href="#" >내 제품 기록</a></li>
+                            <li><a href="myinfoMywrite.php" >내가 쓴 게시물</a></li>
+                            <li><a href="myinfoMyComment.php" >내가 쓴 댓글</a></li>
+                            <li><a href="../mainCate/writeList.php" >내 제품 기록</a></li>
                         </ul>
                     </div>
                     <div class="aside3 ">
                         <span>알림</span>
                         <ul>
-                            <li><a href="#">알림설정</a></li>
+                            <li><a href="myInfoSNSAgree.php" >알림설정</a></li>
                         </ul>
                     </div>
                 </div>
@@ -108,7 +103,6 @@
                         </div>
                         <div class="skinType__inner">
                             <input type="hidden" id="skinType" name="skinType" class="nickInput inputStyle" placeholder="<?= $resultInfo['nickName']?>" required value="<?=$resultInfo['skinType']?>">
-
                             <div class="skinType__title"><span>피부타입</span></div>
                             <div class="skinType__cont">
                                 <label class="toggle__type">
@@ -153,9 +147,8 @@
         let isNickCheck = false;
         let myInfoSaveNum = 0;
         let skinTypeSaveNum = 0;
-
+        
         let chkInfo = true;
-
         // 닉네임 변경 확인
         function myInfoSave(){
             if(myInfoSaveNum === 1){
@@ -209,8 +202,7 @@
                         // isNameCheck가 false일 때 실행되는 코드
                         chkNickName();
                         break;
-
-                    default:
+                        default:
                         break;
                 }
                 return false;
@@ -249,7 +241,6 @@
         
         // 모든 체크박스 요소를 가져옵니다.
         const checkboxes = document.querySelectorAll('.toggle__type input[type="checkbox"]');
-
         // 체크박스 요소가 변경될 때 실행되는 함수
         function handleCheckboxChange(event) {
             if (event.target.checked) {
@@ -265,14 +256,10 @@
                 });
             }
         }
-        
-
         // 각 체크박스 요소에 이벤트 리스너를 추가합니다.
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', handleCheckboxChange);
-        });
-
-        // 페이지 로드 시 이전에 선택된 체크박스 값 복원
+        });// 페이지 로드 시 이전에 선택된 체크박스 값 복원
         window.addEventListener('load', () => {
             const selectedSkinType = $("#skinType").val();
             if (selectedSkinType) {
@@ -285,14 +272,13 @@
                 });
             }
         });
-
         $(document).ready(function() {
             $('#profile-upload').change(function() {
                 var file = $(this).prop('files')[0];
                 var formData = new FormData();
                 formData.append('file', file);
-
-                $.ajax({
+                
+            $.ajax({
                     url: 'uploadProfile.php',
                     type: 'POST',
                     data: formData,
@@ -302,6 +288,7 @@
                         // 성공적으로 업로드되었을 때 수행할 작업
                         // response 변수에는 서버에서 받은 응답이 들어있습니다.
                         console.log(response);
+                        alert('프로필사진이 변경완료되었습니다');
                         location.reload();
                     },
                     error: function() {
@@ -316,8 +303,6 @@
                 $('#profile-upload').click();
             });
         });
-
-    
         
     </script>
 </body>

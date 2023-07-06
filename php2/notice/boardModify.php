@@ -1,7 +1,7 @@
 <?php
     include "../connect/connect.php";
     include "../connect/session.php";
-    // include "../connect/sessionCheck.php";
+    include "../connect/sessionChk.php";
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +77,7 @@
     <!-- SCRIPT -->
     <script defer src="../html/assets/js/common.js"></script>
 </head>
-<body class="white">
+<body class="white" id="scroll">
     <div id="skip">
         <a href="#header">헤더 영역 바로가기</a>
         <a href="#main">컨텐츠 영역 바로가기</a>
@@ -93,7 +93,7 @@
             <div><a href="trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
             <div><a href="shareBoard.php">공유게시판</a></div> <!-- share-->
             <div class="active"><a href="boardNotice.php">공지사항</a></div> <!-- notice-->
-            <div><a href="FAQ.php">FAQ</a></div> <!-- faq-->
+            <div><a href="../FAQ/FAQ.php">FAQ</a></div> <!-- faq-->
         </div>
         <!-- //board__header -->
 
@@ -105,7 +105,7 @@
 
             <div class="board__inner">
                 <div class="board__write">
-                    <form action="#" name="#" method="post">
+                    <form action="boardModifySave.php" name="boardWrite" method="post">
                         <fieldset>
                             <legend class="blind">게시글 수정하기</legend>
 <?php
@@ -119,7 +119,6 @@
 
         echo "<div style='display:none'><label for='boardID'>번호</label><input type='text' id='boardID' name='boardID' class='inputStyle' value='".$info['boardID']."'></div>";
         echo "<div><label for='boardTitle'>제목</label><input type='text' id='board__title' name='boardTitle' class='inputStyle1 board__title' value='".$info['boardTitle']."'></div>";
-
         echo "<div><label for='boardContents'>내용</label><textarea name='boardContents' id='boardContents' rows='20' class='inputStyle2 board__content'>".$info['boardContents']."</textarea></div>";
         echo "<div class='mt50'><label for='boardPass'>비밀번호</label><input type='passWord' id='boardPass' name='boardPass' class='inputStyle1 board__title' autocomplete='off' requied placeholder='글을 수정하려면 로그인 비밀번호를 입력해야 합니다.'></div>";
 

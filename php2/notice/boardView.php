@@ -15,7 +15,7 @@
     <!-- SCRIPT -->
     <script defer src="../html/assets/js/common.js"></script>
 </head>
-<body class="white">
+<body class="white" id="scroll">
     <div id="skip">
         <a href="#header">헤더 영역 바로가기</a>
         <a href="#main">컨텐츠 영역 바로가기</a>
@@ -29,9 +29,9 @@
         <!-- //header -->
         <div id="board__header" class="mt100">
             <div><a href="trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
-            <div><a href="shareBoard.php">공유게시판</a></div> <!-- share-->
+            <div><a href="../shareBoard/shareBoard.php">공유게시판</a></div> <!-- share-->
             <div class="active"><a href="boardNotice.php">공지사항</a></div> <!-- notice-->
-            <div><a href="FAQ.php">FAQ</a></div> <!-- faq-->
+            <div><a href="../FAQ/FAQ.php">FAQ</a></div> <!-- faq-->
         </div>
         <!-- //board__header -->
 
@@ -84,9 +84,7 @@
         if($result){
             $info = $result -> fetch_array(MYSQLI_ASSOC);
             echo "<tr><th>제목</th><td>".$info['boardTitle']."</td></tr>";
-            echo "<tr><th>등록자</th><td>".$info['youName']."</td></tr>";
             echo "<tr><th>등록일</th><td>".date('Y-m-d', $info['regTime'])."</td></tr>";
-            echo "<tr><th>조회수</th><td>".$info['boardView']."</td></tr>";
             echo "<tr><th>내용</th><td>".$info['boardContents']."</td></tr>";
         } else {
             echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";
@@ -97,9 +95,15 @@
                 </table>
             </div>
             <div class="board__btn mb100">
-            <a href="boardModify.php?boardID=<?=$_GET['boardID']?>" class="btnStyle4">수정하기</a>
+            <?php 
+                if(isset($_SESSION['memberID'])){
+                    if($_SESSION['memberID']=='1'){ ?>
+                <a href="boardModify.php?boardID=<?=$_GET['boardID']?>" class="btnStyle4">수정하기</a>
                 <!-- <a href="boardRemove.php?boardID=<?=$_GET['boardID']?>" class="btnStyle4" onclick="confirm('정말 삭제할거니?', '')">삭제하기</a> -->
                 <a href="boardRemove.php?boardID=<?=($_GET['boardID'])?>" class="btnStyle4" onclick="return confirm('정말 삭제할거니?')">삭제하기</a>
+                    <?php } 
+                }?>
+
                 <a href="boardNotice.php" class="btnStyle4">목록보기</a>
             </div>
         </div>

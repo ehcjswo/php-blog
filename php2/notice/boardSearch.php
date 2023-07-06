@@ -11,8 +11,8 @@
     $searchKeyword = $_GET['searchKeyword'];
     $searchKeyword = $connect->real_escape_string(trim($searchKeyword));
     
-    $sql = "SELECT b.boardID, b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView FROM board b JOIN members2 m ON(b.memberID = m.memberID) ";
-    $sql .= "WHERE b.boardTitle LIKE '%{$searchKeyword}%' OR b.boardContents LIKE '%{$searchKeyword}%' OR m.youName LIKE '%{$searchKeyword}%' ";
+    $sql = "SELECT b.boardID, b.boardTitle, b.boardContents, b.regTime, b.boardView FROM board b JOIN members2 m ON(b.memberID = m.memberID) ";
+    $sql .= "WHERE b.boardTitle LIKE '%{$searchKeyword}%' OR b.boardContents LIKE '%{$searchKeyword}%'";
     $sql .= "ORDER BY b.boardID DESC ";
     
     $result = $connect->query($sql);
@@ -25,13 +25,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 페이지</title>
+    <title>공지사항 검색결과</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../html/assets/css/style.css">
     <!-- SCRIPT -->
     <script defer src="../html/assets/js/common.js"></script>
 </head>
-<body class="white">
+<body class="white" id="scroll">
     <div id="skip">
         <a href="#header">헤더 영역 바로가기</a>
         <a href="#main">컨텐츠 영역 바로가기</a>
@@ -43,10 +43,10 @@
         <!-- //header -->
 
         <div id="board__header" class="mt100">
-            <div><a href="trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
-            <div><a href="shareBoard.php">공유게시판</a></div> <!-- share-->
+            <div><a href="../shareBoard/trendsBoard.php">뷰티트렌드</a></div> <!-- news-->
+            <div><a href="../shareBoard/shareBoard.php">공유게시판</a></div> <!-- share-->
             <div class="active"><a href="boardNotice.php">공지사항</a></div> <!-- notice-->
-            <div><a href="FAQ.php">FAQ</a></div> <!-- faq-->
+            <div><a href="../FAQ/FAQ.php">FAQ</a></div> <!-- faq-->
         </div>
         <!-- //board__header -->
 
@@ -147,9 +147,9 @@
 
     // 첫 페이지로 가기/ 이전 페이지로 가기
     if($page !== 1 && $boardTotalCount !=0 && $page <= $boardTotalCount){
-        echo "<li><a href='boardNotice.php?page=1'>처음으로</a></li>";
+        echo "<li><a href='boardNotice.php?page=1&searchKeyword={$searchKeyword}'>처음으로</a></li>";
         $prevPage = $page - 1;
-        echo "<li><a href='boardNotice.php?page={$prevPage}'>이전</a></li>";
+        echo "<li><a href='boardNotice.php?page={$prevPage}&searchKeyword={$searchKeyword}'>이전</a></li>";
     }
 
     //페이지
@@ -157,13 +157,13 @@
         $active = "";
         if($i == $page) $active = "active";
 
-        echo "<li class='{$active}'><a href='boardNotice.php?page={$i}'>{$i}</a></li>";
+        echo "<li class='{$active}'><a href='boardNotice.php?page={$i}&searchKeyword={$searchKeyword}'>{$i}</a></li>";
     }
     // 마지막 페이지로/ 다음 페이지로
     if($page != $boardTotalCount && $page <= $boardTotalCount){
         $nextPage = $page + 1;
-        echo "<li><a href='boardNotice.php?page={$nextPage}'>다음</a></li>";
-        echo "<li><a href='boardNotice.php?page={$boardTotalCount}'>마지막으로</a></li>";
+        echo "<li><a href='boardNotice.php?page={$nextPage}&searchKeyword={$searchKeyword}'>다음</a></li>";
+        echo "<li><a href='boardNotice.php?page={$boardTotalCount}&searchKeyword={$searchKeyword}'>마지막으로</a></li>";
     }
 ?>
                     </ul>
