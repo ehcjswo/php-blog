@@ -30,7 +30,7 @@
         Header("Location: shareBoard.php");
     }
 
-    $blogSql = "SELECT b.*,m.nickName, m.youImgSrc FROM blog b JOIN members2 m ON b.memberID = m.memberID  WHERE blogID  = '$blogID' ORDER BY blogID DESC;";
+    $blogSql = "SELECT b.*,m.nickName, m.youImgSrc FROM abb b JOIN members2 m ON b.memberID = m.memberID  WHERE blogID  = '$blogID' ORDER BY blogID DESC;";
     $blogResult = $connect -> query($blogSql);
     $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
     
@@ -39,13 +39,13 @@
 
     //아래도 같음
 
-    $sql = "UPDATE blog SET blogView = blogView + 1 WHERE blogID = {$blogID}";
+    $sql = "UPDATE abb SET blogView = blogView + 1 WHERE blogID = {$blogID}";
     $connect -> query($sql);
 
-    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView ,m.nickName ,m.youImgSrc     FROM blog b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
+    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView ,m.nickName ,m.youImgSrc FROM abb b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
     $Result = $connect -> query($sql);
     $blog = $Result -> fetch_array(MYSQLI_ASSOC);
-    $commentSql = "SELECT * FROM blogComment WHERE blogID = '$blogID' AND commentDelete = '0' ORDER BY commentID DESC";
+    $commentSql = "SELECT * FROM blogcomment WHERE blogID = '$blogID' AND commentDelete = '0' ORDER BY commentID DESC";
     $commentResult = $connect -> query($commentSql);
     $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);
 
@@ -202,7 +202,7 @@
     // $sql = "SELECT * FROM blog WHERE blogDElete = 0 ORDER BY blogID DESC";
     // $result = $connect -> query($sql);
 
-    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView ,m.nickName FROM blog b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
+    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView ,m.nickName FROM abb b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
             
     // echo $sql;
     // // $sql = "SELECT b.blogContents, b.blogTitle, m.youName, b.regTime, b.blogView ,m.nickName FROM blog b JOIN members2 m ON(m.memberID = b.memberID) WHERE b.blogID = {$blogID}";

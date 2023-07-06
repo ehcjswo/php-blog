@@ -13,12 +13,12 @@
     //     echo "database Connect True"
     // }
 
-    // $host = "localhost";
-    // $user = "root";
-    // $pw = "root";
-    // $db = "phpClass";
-    // $connect = new mysqli($host, $user, $pw, $db);
-    // $connect -> set_charset("utf-8");
+    $host = "localhost";
+    $user = "root";
+    $pw = "root";
+    $db = "phpClass";
+    $connect = new mysqli($host, $user, $pw, $db);
+    $connect -> set_charset("utf-8");
 
     // if(mysqli_connect_errno()){
     //     echo "database Connect false";
@@ -29,16 +29,16 @@
 
 <?php
     // phpinfo()
-    $host = "localhost";
-    $user = "ehcjswo1";
-    $pw = "zosdb12!";
-    $db = "ehcjswo1";
-    $connect = new mysqli($host, $user, $pw, $db);
-    $connect -> set_charset("utf-8");
+    // $host = "localhost";
+    // $user = "ehcjswo1";
+    // $pw = "zosdb12!";
+    // $db = "ehcjswo1";
+    // $connect = new mysqli($host, $user, $pw, $db);
+    // $connect -> set_charset("utf-8");
 
-    if(mysqli_connect_errno()){
-        echo "Database Connect false";
-    } else {
-        // echo "Database Connect True";
-    }
+    // if(mysqli_connect_errno()){
+    //     echo "Database Connect false";
+    // } else {
+    //     // echo "Database Connect True";
+    // }
 ?>

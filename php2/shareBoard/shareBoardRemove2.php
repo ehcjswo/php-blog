@@ -5,7 +5,7 @@
     $blogID = $_GET['blogID'];
     $blogID = $connect -> real_escape_string($blogID);
 
-    $sql = "DELETE FROM blog WHERE blogId = {$blogID}";
+    $sql = "DELETE FROM abb WHERE blogId = {$blogID}";
     $connect -> query($sql);
 ?>
 

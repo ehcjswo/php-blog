@@ -2,7 +2,7 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    $sql = "SELECT count(blogID) FROM blog";
+    $sql = "SELECT count(blogID) FROM abb";
     $result = $connect -> query($sql);
 
     $boardTotalCount = $result -> fetch_array(MYSQLI_ASSOC);
@@ -150,7 +150,7 @@
                         <form action="shareBoardSearch.php" name="shareBoard" mmethod="get">
                             <fieldset>
                                 <legend class="blind">게시판 검색영역</legend>
-                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!" required>
+                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
                                 <button type="submit" class="btnStyle4">검색</button>
                                 <?php if(isset($_SESSION['memberID'])){ ?>
                                     <button type="submit" class="btnStyle4"><a href="shareBoardWrite.php">글쓰기</a></button>
@@ -193,7 +193,7 @@ $viewLimit = ($viewNum * $page) - $viewNum;
 // 40~60 DESC LIMIT 40, 20 -> page3 (viewNum * 3) - viewNum
 // 60~80 DESC LIMIT 60, 20 -> page4 (viewNum * 4) - viewNum
 
-$sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView,m.youImgSrc ,m.nickName FROM blog b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC LIMIT {$viewLimit}, {$viewNum};";
+$sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName, b.blogRegTime, b.blogView,m.youImgSrc ,m.nickName FROM abb b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC LIMIT {$viewLimit}, {$viewNum};";
 $result = $connect -> query($sql);
 
 // $sql = "SELECT boardID, boardTitle, regTime FROM board ORDER BY boardID DESC LIMIT {$viewLimit}, {$viewNum}";
@@ -228,7 +228,7 @@ $result = $connect -> query($sql);
             $viewNum = 16;
             $viewLimit = ($viewNum * $page) - $viewNum;
 
-            $sql = "SELECT blogID, blogTitle, regTime FROM blog ORDER BY blogID DESC LIMIT {$viewLimit}, {$viewNum}";
+            $sql = "SELECT blogID, blogTitle, regTime FROM abb ORDER BY blogID DESC LIMIT {$viewLimit}, {$viewNum}";
             $result = $connect -> query($sql);
 
             

@@ -14,7 +14,7 @@
     $searchKeyword = $_GET['searchKeyword'];
     $searchKeyword = $connect->real_escape_string(trim($searchKeyword));
     
-    $sql = "SELECT b.blogID, b.blogTitle, b.blogContents, b.blogImgFile, b.blogRegTime, b.blogView, m.nickName FROM blog b JOIN members2 m ON(b.memberID = m.memberID) ";
+    $sql = "SELECT b.blogID, b.blogTitle, b.blogContents, b.blogImgFile, b.blogRegTime, b.blogView, m.nickName FROM abb b JOIN members2 m ON(b.memberID = m.memberID) ";
     $sql .= "WHERE b.blogTitle LIKE '%{$searchKeyword}%' OR b.blogContents LIKE '%{$searchKeyword}%'";
     $sql .= "ORDER BY b.blogID DESC ";
 
@@ -166,7 +166,7 @@
                         <form action="shareBoardSearch.php" name="shareBoardSearch" mmethod="get">
                             <fieldset>
                                 <legend class="blind">게시판 검색영역</legend>
-                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!" value="<?= $searchKeyword?>" required>
+                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!" value="<?= $searchKeyword?>">
                                 <button type="submit" class="btnStyle4">검색</button>
                                 <button type="submit " class="btnStyle4"><a href="shareBoardWrite.php">글쓰기</a></button>
                                 

@@ -112,13 +112,13 @@
     $blogID = $_GET['blogID'];
     // echo $blogID;
 
-    $blogSql = "SELECT * FROM blog WHERE blogID = '$blogID'";
+    $blogSql = "SELECT * FROM abb WHERE blogID = '$blogID'";
     $blogResult = $connect -> query($blogSql);
     $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
     // $blogContents = html_entity_decode($blogInfo['blogContents']);
 
 
-    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName FROM blog b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
+    $sql = "SELECT b.blogID, b.blogContents, b.blogImgFile,  b.blogTitle, m.youName FROM abb b JOIN members2 m ON b.memberID = m.memberID ORDER BY blogID DESC;";
     $Result = $connect -> query($sql);
     $blog = $Result -> fetch_array(MYSQLI_ASSOC);
     
