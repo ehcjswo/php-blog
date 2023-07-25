@@ -2,7 +2,7 @@
 
 ✍️ php 블로그 만들기 프로젝트
 phpBlogMain
-<img src="https://raw.githubusercontent.com/ehcjswo/php-blog/mainas/sets/img/gitImg01.jpg" />
+<img src="https://raw.githubusercontent.com/ehcjswo/php-blog/main/assets/img/gitImg01.jpg" />
 
 View Site : http://ehcjswo123.dothome.co.kr/main/main.php
 
